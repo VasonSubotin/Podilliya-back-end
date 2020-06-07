@@ -1,0 +1,31 @@
+@import "../variables";
+@import "../mixins";
+
+
+.footer_block {
+  width: 100%;
+  padding: 50px 0;
+  color: $globalFillColor;
+  background-image: $homePageBackground;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+
+  .title {
+    @include heading-1();
+  }
+
+  .page_market & {
+    background-image: $marketPageBackground;
+    background-position: top;
+  }
+
+  .page_contacts & {
+    background-image:$contactsPageBackground;
+  }
+
+  .page_offers & {
+    background-image: $offersPageBackground;
+    background-position: top;
+  }
+}

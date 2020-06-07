@@ -1,0 +1,151 @@
+@import "../variables";
+@import "../mixins";
+
+.page_header {
+  position: relative;
+  height: $globalMobileHeaderHeight;
+  border-bottom: 2px solid rgba($globalFillColor, .15);
+
+  .logo {
+    display: block;
+    width: fit-content;
+  }
+
+  .btn_menu_close {
+    display: none;
+    padding-left: .25rem;
+  }
+
+  .opened_header_mobile_row {
+    display: none;
+  }
+
+  @media screen and (max-width: 991px) {
+    &.opened {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      border-bottom: none;
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.11);
+      background: $globalFillColor;
+      color: $globalStrokeColor;
+      z-index: 1;
+
+      > .header_mobile_row {
+        position: relative;
+        height: $globalMobileHeaderHeight !important;
+        margin-bottom: 24px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 16px;
+          width: calc(100% - 32px);
+          height: 2px;
+          background: rgba($globalPanelColor, .2);
+        }
+      }
+
+      .opened_header_mobile_row {
+        display: flex;
+      }
+
+      & + * {
+        padding-top: $globalMobileHeaderHeight;
+      }
+
+      > * {
+        max-width: 1152px;
+        margin: 0 auto;
+      }
+
+      .header_nav .header_nav_link {
+        color: $globalStrokeColor;
+
+        &::after {
+          background: $primary;
+        }
+      }
+
+      .languages .item a {
+        color: $globalStrokeColor;
+      }
+
+      .logo {
+        filter: invert(1);
+      }
+
+      .btn_menu {
+        display: none !important;
+      }
+
+      .btn_menu_close {
+        display: block;
+      }
+
+      @include _media(xl) {
+        .modal-open & {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+
+  @include _media(lg) {
+    height: $globalDesktopHeaderHeight;
+
+    &.sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.11);
+      background: $globalFillColor;
+      color: $globalStrokeColor;
+      z-index: 4;
+
+      & + * {
+        padding-top: $globalDesktopHeaderHeight;
+      }
+
+      > * {
+        max-width: 1152px;
+        margin: 0 auto;
+      }
+
+      .header_nav .header_nav_link {
+        color: $globalStrokeColor;
+
+        &::after {
+          background: $primary;
+        }
+      }
+
+      .languages .item a {
+        color: $globalStrokeColor;
+      }
+
+      .logo {
+        filter: invert(1);
+      }
+
+      .modal-open & {
+        padding-right: 0;
+      }
+
+      @include _media(xl) {
+        .modal-open & {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+.btn_menu,
+.btn_menu_close {
+  cursor: pointer;
+}

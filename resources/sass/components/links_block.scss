@@ -1,0 +1,27 @@
+@import "../variables";
+@import "../mixins";
+
+
+.links_block {
+  display: flex;
+
+  .link {
+    display: block;
+    padding: .75rem;
+    line-height: 19px;
+    white-space: nowrap;
+    color: $globalFillColor;
+    border: 1px solid $globalFillColor;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+      border: 1px solid $primary;
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,0 +1,218 @@
+@import "../variables";
+@import "../mixins";
+
+
+.page_market {
+  h2.title {
+    @include heading-3;
+
+    margin-bottom: 1rem;
+  }
+}
+
+.market_prices {
+  margin-bottom: 70px;
+
+  .table {
+    margin-bottom: 0;
+    padding: 0 1rem;
+    border: 1px solid $lightGray;
+    border-radius: $globalBorderRadius;
+  }
+
+  .table_row {
+    padding: 1rem 0 .75rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $lightGray;
+    }
+  }
+
+  .label {
+    margin-bottom: .25rem;
+    font-size: .875rem;
+    color: $lightGray;
+  }
+
+  .price_row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .precent {
+    padding-left: 1rem;
+
+    &.increase {
+      color: $green;
+    }
+
+    &.decrease {
+      color: $red;
+    }
+  }
+
+  @include _media(lg) {
+    margin-bottom: 0;
+  }
+}
+
+.market_table {
+  margin-right: -1rem;
+  margin-left: -1rem;
+
+  .table_inner {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .table_wrap {
+    overflow-x: auto;
+  }
+
+  .table {
+    overflow: hidden;
+
+    th,
+    td {
+      font-weight: 400;
+      vertical-align: middle;
+    }
+
+    th {
+      padding: .5rem .75rem;
+      font-size: 14px;
+    }
+
+    td {
+      padding: 1rem .75rem;
+    }
+
+    .thead-dark {
+      th {
+        border: none;
+      }
+    }
+
+    thead tr {
+      > *:first-child {
+        border-top-left-radius: $globalBorderRadius;
+        text-align: left;
+      }
+
+      > *:last-child {
+        border-top-right-radius: $globalBorderRadius;
+        text-align: right;
+      }
+    }
+
+    tbody {
+      :first-child td {
+        border-top: none;
+      }
+
+      :last-child {
+        border-bottom: 1px solid $border-color;
+      }
+
+      tr {
+        border-left: 2px solid $border-color;
+        border-right: 2px solid $border-color;
+
+        :last-child {
+          text-align: right;
+        }
+
+        &:hover {
+          background: $rowHoverBackground;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .btn-buy,
+  .btn-sell {
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center !important;
+    border-bottom: none !important;
+  }
+
+  .btn-sell {
+    color: $globalFillColor;
+    background-color: $btnSellColor;
+    border-color: $btnSellColor;
+
+    &:hover {
+      background-color: darken($btnSellColor, 5%);
+    }
+
+    &:active {
+      background-color: darken($btnSellColor, 15%);
+    }
+  }
+
+  .w-md-100 {
+    @include _media(md) {
+      width: 100% !important;
+    }
+  }
+
+  .page-link {
+    border-color: $border-color;
+    color: $globalStrokeColor;
+  }
+
+  .page-item.active .page-link {
+    color: $globalStrokeColor;
+  }
+}
+
+.pagination-detail {
+  display: none !important;
+}
+
+.bootstrap-table .fixed-table-container .table thead th .th-inner {
+  padding: .5rem .75rem;
+}
+
+.table_wrap {
+  margin-bottom: 3.5rem;
+}
+
+.fixed-table-pagination {
+  position: absolute;
+  float: unset !important;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@include _media(lg) {
+  .market_table {
+    margin-right: 0;
+    margin-left: 0;
+
+    .table_inner {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .table_wrap {
+    margin-bottom: 0;
+  }
+
+  .fixed-table-pagination {
+    position: static;
+    transform: none;
+
+    > .pagination {
+      display: flex;
+      justify-content: center;
+      float: unset !important;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import "../variables";
+@import "../mixins";
+
+
+.contacts {
+  .item {
+    display: flex;
+    margin-bottom: 1rem;
+
+    @include _media(md) {
+      margin-bottom: 40px;
+    }
+
+    .image {
+      width: 164px;
+      height: 212px;
+      min-width: 164px;
+      margin-right: 1rem;
+      border-radius: $globalBorderRadius;
+      object-fit: cover;
+    }
+
+    .text_block {
+      padding-top: 10px;
+
+      @include _media(md) {
+        padding-top: 5px;
+      }
+    }
+
+    .title {
+      font-family: $fontFamilyMontserrat;
+      font-size: 1.5rem;
+    }
+
+    .position {
+      margin: 10px 0;
+      line-height: 1.7;
+      text-transform: uppercase;
+      color: mix($globalStrokeColor, $globalFillColor, 42%);
+    }
+
+    .link {
+      display: block;
+      color: $globalStrokeColor;
+      text-decoration: none;
+      margin: .5rem 0;
+      word-break: break-word;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $globalStrokeColor;
+      }
+    }
+  }
+}

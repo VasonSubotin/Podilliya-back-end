@@ -13,7 +13,7 @@ var path = {
         // html: 'assets/src/*.html',
         js: 'resources/js/main.js',
         style: 'resources/sass/main.scss',
-        img: 'resources/img/*.*',
+        img: 'resources/img/**/*.*',
         fonts: 'resources/fonts/**/*.*'
     },
     watch: {
@@ -23,7 +23,7 @@ var path = {
         img: 'resources/img/*.*',
         fonts: 'resources/fonts/**/*.*'
     },
-    clean: './assets/build/*'
+    clean: './public/build/*'
 };
 
 /* настройки сервера */
@@ -58,14 +58,14 @@ gulp.task('webserver', function () {
     webserver(config);
 });
 
-// сбор html
-gulp.task('html:build', function () {
-    return gulp.src(path.src.html) // выбор всех html файлов по указанному пути
-        .pipe(plumber()) // отслеживание ошибок
-        .pipe(rigger()) // импорт вложений
-        .pipe(gulp.dest(path.build.html)) // выкладывание готовых файлов
-        .pipe(webserver.reload({ stream: true })); // перезагрузка сервера
-});
+// // сбор html
+// gulp.task('html:build', function () {
+//     return gulp.src(path.src.html) // выбор всех html файлов по указанному пути
+//         .pipe(plumber()) // отслеживание ошибок
+//         .pipe(rigger()) // импорт вложений
+//         .pipe(gulp.dest(path.build.html)) // выкладывание готовых файлов
+//         .pipe(webserver.reload({ stream: true })); // перезагрузка сервера
+// });
 
 // сбор стилей
 gulp.task('css:build', function () {
@@ -79,7 +79,7 @@ gulp.task('css:build', function () {
         .pipe(cleanCSS()) // минимизируем CSS
         .pipe(sourcemaps.write('./')) // записываем sourcemap
         .pipe(gulp.dest(path.build.css)) // выгружаем в build
-        .pipe(webserver.reload({ stream: true })); // перезагрузим сервер
+        // .pipe(webserver.reload({ stream: true })); // перезагрузим сервер
 });
 
 // сбор js
@@ -93,7 +93,7 @@ gulp.task('js:build', function () {
         .pipe(uglify()) // минимизируем js
         .pipe(sourcemaps.write('./')) //  записываем sourcemap
         .pipe(gulp.dest(path.build.js)) // положим готовый файл
-        .pipe(webserver.reload({ stream: true })); // перезагрузим сервер
+        // .pipe(webserver.reload({ stream: true })); // перезагрузим сервер
 });
 
 // перенос шрифтов
@@ -132,10 +132,10 @@ gulp.task('cache:clear', function () {
 gulp.task('build',
     gulp.series('clean:build',
         gulp.parallel(
-            'html:build',
+            // 'html:build',
             'css:build',
             'js:build',
-            'fonts:build',
+            // 'fonts:build',
             'image:build'
         )
     )
@@ -143,7 +143,7 @@ gulp.task('build',
 
 // запуск задач при изменении файлов
 gulp.task('watch', function () {
-    gulp.watch(path.watch.html, gulp.series('html:build'));
+    // gulp.watch(path.watch.html, gulp.series('html:build'));
     gulp.watch(path.watch.css, gulp.series('css:build'));
     gulp.watch(path.watch.js, gulp.series('js:build'));
     gulp.watch(path.watch.img, gulp.series('image:build'));
@@ -152,6 +152,5 @@ gulp.task('watch', function () {
 
 // задача по умолчанию
 gulp.task('default', gulp.series(
-    'build',
-    gulp.parallel('webserver','watch')
+    'build'
 ));

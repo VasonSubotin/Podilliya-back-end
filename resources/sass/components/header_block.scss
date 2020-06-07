@@ -1,0 +1,40 @@
+@import "../variables";
+@import "../mixins";
+
+.header_block {
+  width: 100%;
+  padding-bottom: .5rem;
+  background-image: $homePageBackground;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  color: $globalFillColor;
+
+  @include _media(md) {
+    padding-bottom: 4.625rem;
+  }
+
+  .page_market &,
+  .page_contacts &,
+  .page_offers & {
+    padding-bottom: 1.75rem;
+
+    @include _media(md) {
+      padding-bottom: 2.75rem;
+    }
+  }
+
+  .page_market & {
+    background-image: $marketPageBackground;
+    background-position: top;
+  }
+
+  .page_contacts & {
+    background-image:$contactsPageBackground;
+  }
+
+  .page_offers & {
+    background-image: $offersPageBackground;
+    background-position: top;
+  }
+}

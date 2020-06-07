@@ -1,0 +1,57 @@
+// Variables Bootstrap 4
+
+$primary: #f7d200;
+$secondary: #ffffff;
+$red:     #cc2eaa;
+$green:   #2ecc71;
+$grid-gutter-width: 32px;
+$btn-border-radius: 4rem;
+$btn-border-radius-lg: 4rem;
+$btn-border-radius-sm: 4rem;
+$font-family-sans-serif: "Roboto", sans-serif;
+$body-color: #000000;
+$fontFamilyMontserrat: "Montserrat", sans-serif;
+$font-size-lg: 1.125rem;
+$gray-400: mix(#000000, #ffffff, 25%);
+$yiq-text-dark: #000000;
+$green: #6dd400;
+$red: #e02020;
+$table-dark-bg: #1c1b1b;
+$border-color: #bebebe;
+
+// Global Variables
+
+$globalFillColor: #ffffff;
+$globalStrokeColor: #000000;
+$globalPanelColor: #1c1b1b;
+$globalDesktopHeaderHeight: 90px;
+$globalMobileHeaderHeight: 72px;
+$globalBorderRadius: 8px;
+$bgGradient: linear-gradient(90deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .1) 100%);
+$globalShadow: 0 9px 16px 0 rgba($globalStrokeColor, 0.11);
+$transition: .25s;
+
+// Colors
+$lightGray: #979797;
+$modalFooterColor: #191919;
+
+// Service
+$servicesListColor: #191919;
+
+// Divider
+$dividerBg: mix($lightGray, $globalPanelColor, 30%);
+
+// Modals
+$modalCloseBg: mix(#504f4f, #d8d8d8, 85%);
+
+// Buttons
+$btnSellColor: #1c1b1b;
+
+// Table
+$rowHoverBackground: #F2F2F2;
+
+// Background images
+$homePageBackground: $bgGradient, url(../img/backgrounds/home_bg.jpg);
+$marketPageBackground: $bgGradient, url(../img/backgrounds/market_bg.jpg);
+$contactsPageBackground: $bgGradient, url(../img/backgrounds/contacts_bg.jpg);
+$offersPageBackground: $bgGradient, url(../img/backgrounds/offers_bg.jpg);

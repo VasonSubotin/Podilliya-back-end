@@ -1,0 +1,25 @@
+@import "../variables";
+@import "../mixins";
+
+
+.about {
+  padding-top: 2.75rem;
+
+  @include _media(sm) {
+    padding-top: 7.8125rem;
+  }
+
+  .title {
+    margin-top: 30px;
+    margin-bottom: 1rem;
+
+    @include _media(md) {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  .image {
+    border-radius: $globalBorderRadius;
+  }
+}

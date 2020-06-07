@@ -1,0 +1,49 @@
+@import "../variables";
+@import "../mixins";
+
+
+.main_block {
+  padding-bottom: 2.75rem;
+
+  @include _media(sm) {
+    padding-bottom: 7.8125rem;
+  }
+
+  .page_offers & {
+    padding-bottom: 0;
+  }
+
+  .page_contacts & {
+    padding: 24px 0 16px;
+
+    @include _media(md) {
+      padding: 50px 0 10px;
+    }
+  }
+
+  .page_market & {
+    padding: 30px 0 40px;
+
+    @include _media(md) {
+      padding: 40px 0 70px;
+    }
+  }
+
+  h2 {
+    &:not(.title) {
+      @include heading-2();
+
+      text-align: center;
+
+      @include _media(md) {
+        text-align: left;
+      }
+    }
+  }
+
+  h3,
+  h2.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,154 @@
+@import "../variables";
+@import "../mixins";
+
+
+.certifications {
+  padding-top: 4rem;
+
+  @include _media(md) {
+    padding-top: 6.25rem;
+  }
+
+  .certifications_slider {
+    margin: 0 -16px;
+
+    @include _media(sm) {
+      margin: 0 auto;
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      outline: none;
+      transform: translateY(-50%);
+
+      &:hover,
+      &:focus,
+      &:active {
+        outline: none;
+      }
+
+      &.owl-prev,
+      &.owl-next {
+        width: 46px;
+        padding: 11px 15px !important;
+        border-radius: 50%;
+        background: $globalFillColor;
+        box-shadow: $globalShadow;
+
+        &.disabled {
+          opacity: .5;
+        }
+      }
+
+      @include _media(md) {
+        &.owl-prev {
+          left: 12%;
+        }
+
+        &.owl-next {
+          right: 12%;
+        }
+      }
+
+      @include _media(lg) {
+        &.owl-prev {
+          left: 18%;
+        }
+
+        &.owl-next {
+          right: 18%;
+        }
+      }
+
+      @include _media(xl) {
+        &.owl-prev {
+          left: 20%;
+        }
+
+        &.owl-next {
+          right: 20%;
+        }
+      }
+    }
+  }
+
+  .owl-item {
+    position: relative;
+    transition: $transition;
+
+    .item {
+      display: block;
+      margin: 0 -35px;
+      color: $globalStrokeColor;
+      background: $globalFillColor;
+      text-decoration: none;
+      text-align: center;
+      pointer-events: none;
+
+      &:hover {
+        color: $globalStrokeColor;
+        text-decoration: none;
+      }
+
+      @include _media(sm) {
+        margin: 0 -120px;
+      }
+    }
+
+    .image {
+      padding-top: 71%;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: $globalShadow;
+      background-size: cover;
+      transition: $transition;
+
+      img {
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+
+    .caption {
+      visibility: hidden;
+      opacity: 0;
+      padding-top: 1.125rem;
+      font-size: 1.125rem;
+      transition: $transition;
+    }
+
+    &.center {
+      z-index: 3;
+      transform: scale(1);
+
+      .item {
+        pointer-events: auto;
+      }
+
+      .image {
+
+      }
+
+      .caption {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &.active:not(.center) {
+      z-index: 2;
+      transform: scale(.75);
+    }
+
+    &:not(.active):not(.center) {
+      z-index: 1;
+      transform: scale(.75);
+
+      @include _media(sm) {
+        opacity: .3;
+        transform: scale(.6);
+      }
+    }
+  }
+}

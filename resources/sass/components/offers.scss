@@ -1,0 +1,55 @@
+@import "../variables";
+@import "../mixins";
+
+.offers {
+  padding-top: 3.25rem;
+}
+
+.offer_card {
+  .image_wrap {
+    position: relative;
+    border-radius: $globalBorderRadius;
+    overflow: hidden;
+
+    .caption {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      padding: .657rem 1.5rem;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: $btn-border-radius-lg;
+      background: $globalFillColor;
+    }
+  }
+
+  .more {
+    position: relative;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $globalStrokeColor;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: $primary;
+      transform: scaleX(1);
+      transform-origin: left center;
+      transition: $transition;
+    }
+
+    &:hover {
+      color: $globalStrokeColor;
+      text-decoration: none;
+
+      &::after {
+        transform: scaleX(0);
+      }
+    }
+  }
+}

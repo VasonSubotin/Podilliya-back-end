@@ -1,0 +1,59 @@
+@import "variables";
+@import "mixins";
+
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.container-fluid {
+  max-width: 1152px;
+}
+
+h1 {
+  @include heading-2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontFamilyMontserrat;
+}
+
+a {
+  transition: $transition;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.btn {
+  font-weight: 500;
+}
+
+.main_site_title {
+  @include heading-1();
+}
+
+.row {
+  &.half_space {
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+
+    > .col {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+  }
+}

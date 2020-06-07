@@ -1,0 +1,50 @@
+@import "../variables";
+@import "../mixins";
+
+
+.service {
+  padding-top: 2.5rem;
+
+  @include _media(md) {
+    padding-top: 4rem;
+  }
+
+  .text {
+    text-align: center;
+
+    @include _media(md) {
+      text-align: left;
+    }
+  }
+
+  .services_list {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 15px 40px;
+    border-radius: 15px;
+    background: $servicesListColor;
+    color: $globalFillColor;
+
+    .service_item {
+      flex: 1;
+      padding: 16px 25px;
+    }
+
+    .image {
+      max-height: 80px;
+    }
+
+    .title {
+      font-size: 18px;
+    }
+
+    @include _media(md) {
+      flex-direction: row;
+      padding: 40px 25px;
+
+      .service_item {
+        padding: 0 25px;
+      }
+    }
+  }
+}

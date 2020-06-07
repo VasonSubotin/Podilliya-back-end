@@ -1,0 +1,70 @@
+@import "../variables";
+@import "../mixins";
+
+.modal_market {
+  .btn-more {
+    padding: calc(.5rem - 1px) 1.5rem;
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border: 1px solid $primary;
+  }
+
+  .date {
+    margin: 6px 0 1rem;
+    color: $primary;
+  }
+
+  .modal_footer {
+    padding: 24px 16px 8px;
+    border-radius: 0 0 $globalBorderRadius $globalBorderRadius;
+    background: $modalFooterColor;
+    color: $globalFillColor;
+
+    .row {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    @include _media(md) {
+      padding: 32px 40px;
+    }
+  }
+}
+
+.modal-content {
+  border-radius: $globalBorderRadius;
+}
+
+.modal_market_data {
+  padding: 2rem 2.5rem .75rem;
+
+  h2 {
+    font-size: 34px;
+    line-height: 2.5rem;
+    font-weight: 700;
+  }
+
+  .data_row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid $lightGray;
+  }
+
+  .data_label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: mix($globalFillColor, $globalStrokeColor, 50%);
+  }
+
+  .data_text {
+    margin-top: auto;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+}
