@@ -30,6 +30,16 @@ $(document).ready(function () {
             },
         },
     });
+
+
+    $("#contact_us_form").submit(function( event ) {
+        var contact = getFormData($(this));
+        console.log(contact);
+        event.preventDefault();
+        axios.post('/api/contacts', contact);
+    });
+
+
 });
 
 window.addEventListener('scroll', stickyHeader);
@@ -44,6 +54,18 @@ $(document).click(function (e){
         $('.languages').removeClass('opened');
     }
 });
+
+
+function getFormData($form){
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+}
 
 function stickyHeader() {
     var offsetY = window.pageYOffset;

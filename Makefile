@@ -3,4 +3,7 @@ db:
 
 
 init:
+	composer install
 	npm install --global gulp-cli
+	php artisan migrate
+	php artisan backpack install

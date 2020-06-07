@@ -26,6 +26,6 @@
 
 // Импорт bootstrap table
 //= ../../node_modules/bootstrap-table/dist/bootstrap-table.min.js
-
+//= ../../node_modules/axios/dist/axios.min.js
 // Импортируем другие js-файлы
 //= my.js
