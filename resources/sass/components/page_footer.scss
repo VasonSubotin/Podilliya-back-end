@@ -92,3 +92,11 @@
 .copyright_col {
   padding: 0 .5rem !important;
 }
+
+.second_copyright {
+  display: none;
+
+  .page_market & {
+    display: block;
+  }
+}

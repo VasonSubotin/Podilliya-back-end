@@ -15,13 +15,13 @@
                         <a href="/">Home</a>
                     </div>
                     <div class="link_wrap">
-                        <a href="/offers.html">Offers</a>
+                        <a href="/offers">Offers</a>
                     </div>
                     <div class="link_wrap">
-                        <a href="/market.html">Market Pricing</a>
+                        <a href="/market">Market Pricing</a>
                     </div>
                     <div class="link_wrap">
-                        <a href="/contacts.html">Contacts</a>
+                        <a href="/contacts">Contacts</a>
                     </div>
                 </nav>
             </div>
@@ -37,7 +37,7 @@
             <div class="col flex-grow-0 text-nowrap copyright_col">
                 <div class="copyright">© 2020 Podiliya Gold™</div>
             </div>
-            <div class="col copyright_col">
+            <div class="col copyright_col second_copyright">
                 <div class="copyright_market text-right">by <a href="http://graintrade.com.ua/" target="_blank" rel="noopener noreferrer">Graintrade.com.ua</a></div>
             </div>
         </div>

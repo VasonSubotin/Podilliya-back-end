@@ -39,6 +39,13 @@ $(document).ready(function () {
         axios.post('/api/contacts', contact);
     });
 
+    $("#footer_contact_form").submit(function( event ) {
+        var contact = getFormData($(this));
+        console.log(contact);
+        event.preventDefault();
+        axios.post('/api/contacts', contact);
+    });
+
 
 });
 

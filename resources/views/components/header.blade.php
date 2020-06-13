@@ -9,16 +9,16 @@
             <nav class="header_nav">
                 <ul class="header_nav_menu h-100">
                     <li class="header_nav_item text-center h-100">
-                        <a class="header_nav_link text-decoration-none px-2 active" href="/">Home</a>
+                        <a class="header_nav_link text-decoration-none px-2 {{$request->is('/') ? 'active' : ''}}" href="/">Home</a>
                     </li>
                     <li class="header_nav_item text-center h-100">
-                        <a class="header_nav_link text-decoration-none px-2" href="/market">Market</a>
+                        <a class="header_nav_link text-decoration-none px-2 {{$request->is('market') ? 'active' : ''}}" href="/market">Market</a>
                     </li>
                     <li class="header_nav_item text-center h-100">
-                        <a class="header_nav_link text-decoration-none px-2" href="/contacts">Contacts</a>
+                        <a class="header_nav_link text-decoration-none px-2 {{$request->is('contacts') ? 'active' : ''}}" href="/contacts">Contacts</a>
                     </li>
                     <li class="header_nav_item text-center h-100">
-                        <a class="header_nav_link text-decoration-none px-2" href="/offers">Offers</a>
+                        <a class="header_nav_link text-decoration-none px-2 {{$request->is('offers') ? 'active' : ''}}" href="/offers">Offers</a>
                     </li>
                 </ul>
             </nav>
