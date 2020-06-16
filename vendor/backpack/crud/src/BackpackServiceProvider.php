@@ -11,7 +11,7 @@ use Illuminate\Support\ServiceProvider;
 
 class BackpackServiceProvider extends ServiceProvider
 {
-    use Stats, LicenseCheck;
+//    use Stats, LicenseCheck;
 
     protected $commands = [
         \Backpack\CRUD\app\Console\Commands\Install::class,

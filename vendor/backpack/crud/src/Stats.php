@@ -54,13 +54,9 @@ trait Stats
      */
     private function makeCurlRequest($method, $url, $payload)
     {
-        $cmd = 'curl -X '.$method." -H 'Content-Type: application/json'";
-        $cmd .= " -d '".json_encode($payload)."' "."'".$url."'";
-        $cmd .= ' > /dev/null 2>&1 &';
 
-        exec($cmd, $output, $exit);
 
-        return $exit == 0;
+        return true;
     }
 
     /**
@@ -79,16 +75,6 @@ trait Stats
      */
     private function makeGuzzleRequest($method, $url, $payload)
     {
-        try {
-            $client = new \GuzzleHttp\Client();
-            $res = $client->request($method, $url, [
-                'form_params'         => $payload,
-                'http_errors'         => false,
-                'connect_timeout'     => 0.5,
-                'timeout'             => 0.5,
-            ]);
-        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-            // do nothing
-        }
+
     }
 }
