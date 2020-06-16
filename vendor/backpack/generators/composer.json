@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/generators",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "illia",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    
+  }
+}
