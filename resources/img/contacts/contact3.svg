@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160px" height="207px" viewBox="0 0 160 207" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bitmap</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="160" height="207"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Contacts" transform="translate(-735.000000, -537.000000)">
+            <g id="Bitmap" transform="translate(735.000000, 537.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#191919" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <path d="M80.1370417,64.0046286 L66.1402165,103.5 L80.1370417,142.995371 L94.0193023,103.5 L80.1370417,64.0046286 Z" id="Rectangle" stroke="#F7D200" stroke-width="2" mask="url(#mask-2)"></path>
+                <path d="M80.1370417,64.0046286 L66.1402165,103.5 L80.1370417,142.995371 L94.0193023,103.5 L80.1370417,64.0046286 Z" id="Rectangle-Copy" stroke="#F7D200" stroke-width="2" mask="url(#mask-2)" transform="translate(80.079277, 103.500000) rotate(90.000000) translate(-80.079277, -103.500000) "></path>
+                <path d="M80.1174182,63.9793706 L66.2541961,103.523774 L79.9953597,143.020532 L93.7456103,103.476276 L80.1174182,63.9793706 Z" id="Rectangle-Copy-2" stroke="#F7D200" stroke-width="2" mask="url(#mask-2)" transform="translate(79.999434, 103.499935) rotate(45.000000) translate(-79.999434, -103.499935) "></path>
+                <path d="M79.9953597,63.9794685 L66.2541961,103.476226 L80.1174182,143.020629 L93.7456103,103.523724 L79.9953597,63.9794685 Z" id="Rectangle-Copy-3" stroke="#F7D200" stroke-width="2" mask="url(#mask-2)" transform="translate(79.999434, 103.500065) rotate(-45.000000) translate(-79.999434, -103.500065) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
