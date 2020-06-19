@@ -8,9 +8,8 @@
                     <th data-field="id">Type</th>
                     <th data-field="price" data-sortable="true">Price/t</th>
                     <th data-field="weight">Mass(t)</th>
-                    <th data-field="agent">Agent</th>
                     <th data-field="type2">Type</th>
-                    <th data-field="basis">Basis</th>
+                    <th data-field="basis">Company Name</th>
                     <th data-field="time">Time</th>
                 </tr>
                 </thead>
@@ -30,10 +29,9 @@
                         </td>
                         <td>{{$data->price_en}}</td>
                         <td>{{$data->volume_en}}</td>
-                        <td>{{$data->agent_en}}</td>
                         <td>{{$data->culture_en}}</td>
-                        <td>{{$data->basis_en}}</td>
-                        <td>{{$data->create_at}}</td>
+                        <td>{{$data->company_name_en}}</td>
+                        <td>{{\Carbon\Carbon::parse($data->create_at)->toDateTimeString()}}</td>
                     </tr>
                 @endforeach
                 </tbody>

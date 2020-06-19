@@ -2,9 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Culture;
 use App\Models\MarketData;
-use App\Models\OfferType;
 use App\Models\ScrappedDataRecord;
 use Illuminate\Console\Command;
 
@@ -49,18 +47,26 @@ class ProcessScrappedData extends Command
 
             (MarketData::create(
                 [
-                    'culture_en'            => $decodedScrappedData->culture,
-                    'delivery_due_data_en'  => $decodedScrappedData->deliveryDueData,
-                    'delivery_terms_en'     => $decodedScrappedData->deliveryTerms,
-                    'description_en'        => $decodedScrappedData->description,
-                    'location_en'           => $decodedScrappedData->location,
-                    'month_of_delivery_en'  => $decodedScrappedData->monthOfDelivery,
-                    'offer_type_en'         => $decodedScrappedData->offerType,
-                    'price_en'              => $decodedScrappedData->price,
-                    'processing_company_en' => $decodedScrappedData->processingCompany,
-                    'valid_until_en'        => $decodedScrappedData->validUntil,
-                    'vat_en'                => $decodedScrappedData->vat,
-                    'volume_en'             => $decodedScrappedData->volume,
+                    'culture_en'               => $decodedScrappedData->culture,
+                    'delivery_due_data_en'     => $decodedScrappedData->deliveryDueData,
+                    'delivery_terms_en'        => $decodedScrappedData->deliveryTerms,
+                    'description_en'           => $decodedScrappedData->description,
+                    'location_en'              => $decodedScrappedData->location,
+                    'month_of_delivery_en'     => $decodedScrappedData->monthOfDelivery,
+                    'offer_type_en'            => $decodedScrappedData->offerType,
+                    'price_en'                 => $decodedScrappedData->price,
+                    'processing_company_en'    => $decodedScrappedData->processingCompany,
+                    'valid_until_en'           => $decodedScrappedData->validUntil,
+                    'vat_en'                   => $decodedScrappedData->vat,
+                    'volume_en'                => $decodedScrappedData->volume,
+                    'company_name_en'          => $decodedScrappedData->companyName,
+                    'company_contact_en'       => $decodedScrappedData->companyContact,
+                    'company_telephone_en'     => $decodedScrappedData->companyTelephone,
+                    'company_website_en'       => $decodedScrappedData->companyWebsite,
+                    'company_registered_no_en' => $decodedScrappedData->companyRegisteredNo,
+                    'company_director_en'      => $decodedScrappedData->companyDirector,
+                    'company_owner_en'         => $decodedScrappedData->companyOwner,
+                    'company_type_en'          => $decodedScrappedData->companyType,
                 ]
             ))->save();
         }

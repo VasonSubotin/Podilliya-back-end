@@ -18,7 +18,7 @@ class CreateMarketData extends Migration
             $table->string('culture_en', 512);
             $table->string('delivery_due_data_en');
             $table->string('delivery_terms_en', 100);
-            $table->string('description_en', 100);
+            $table->text('description_en');
             $table->string('location_en');
             $table->string('month_of_delivery_en');
             $table->string('offer_type_en');
