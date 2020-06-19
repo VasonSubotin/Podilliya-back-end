@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="41e0674e-4a57-4ce3-8936-1dfe1f8e1160" name="podiliya" url="http://podiliyagold.com">
+        <fileTransfer accessType="SFTP" host="161.35.220.155" port="22" sshConfigId="4f514652-edf1-40c7-b637-a275b55319b1" sshConfig="root@161.35.220.155:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

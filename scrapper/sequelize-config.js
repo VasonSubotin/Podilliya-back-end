@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 
-const sequelize = new Sequelize('oilmarket', 'oilmarket', '[eqgbpl;jgf', {
+const sequelize = new Sequelize('oilmarket', 'oilmarket', '[eqgbplf;jgf', {
     host: 'localhost',
     port: '3306',
     dialect: 'mysql',

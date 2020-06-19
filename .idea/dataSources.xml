@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:33066/scrapper</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="oilmarket@localhost" uuid="23a35170-f77f-47ab-8611-55108e453f2d">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/oilmarket</jdbc-url>
+    </data-source>
   </component>
 </project>
