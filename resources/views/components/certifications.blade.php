@@ -1,7 +1,7 @@
 <div class="certifications">
     <div class="row">
         <div class="col-12 text-center">
-            <h2 class="text-center mb-4 mb-md-5">Certifications</h2>
+            <h2 class="text-center mb-4 mb-md-5">@lang('home.content.certification')</h2>
             <div class="certifications_slider">
                 <div class="owl-carousel">
                     <a href="{{asset('build/img/certifications/cert_1.pdf')}}" target="_blank" class="item">
@@ -26,7 +26,7 @@
                     </a>
                 </div>
             </div>
-            <a href="" class="btn btn-primary bg-transparent btn-lg btn-download mt-4">Download all certifications</a>
+            <a href="" class="btn btn-primary bg-transparent btn-lg btn-download mt-4">@lang('home.content.certification.dwnld')</a>
         </div>
     </div>
 </div>
