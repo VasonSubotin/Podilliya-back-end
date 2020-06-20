@@ -5,7 +5,7 @@
 
         <div class="row">
             <div class="col-12 col-md-7 mt-md-5 mt-4">
-                <h1 class="main_site_title">@lang('header.message')</h1>
+                <h1 class="main_site_title">@lang('home.header.message')</h1>
             </div>
         </div>
 
