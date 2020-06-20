@@ -42,7 +42,14 @@ class PersonalRequest extends FormRequest
             'photo_path' => [
                 'required',
                 Rule::dimensions()->maxWidth('160')->maxHeight('207')
-            ]
+            ],
+            'full_name_en' => 'required',
+            'full_name_uk' => 'required',
+            'department_en' => 'required',
+            'department_uk' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+
         ];
     }
 
