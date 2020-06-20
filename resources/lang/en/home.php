@@ -27,6 +27,13 @@ return [
     'content.service.log.service.def' => 'Logistic services for goods delivery to the chosen destination',
     'content.certification'           => 'Certifications',
     'content.certification.dwnld'     => 'Download all certifications',
-    'content.who.we.are'     => 'Who we are',
-    'content.who.we.are.def'     => 'Podiliya Gold – We are the worldwide producer and exporter of sunflower oil based in Ukraine. We are the supplier of crude / refined sunflower oil products, as well as oil seed pess cake from the all regions to world markets. We export our products into more than 10 countries of the world. We are rapidly growing company with fast-paced doers in charge, and modern corporate culture.',
+    'content.who.we.are'              => 'Who we are',
+    'content.who.we.are.def'          => 'Podiliya Gold – We are the worldwide producer and exporter of sunflower oil based in Ukraine. We are the supplier of crude / refined sunflower oil products, as well as oil seed pess cake from the all regions to world markets. We export our products into more than 10 countries of the world. We are rapidly growing company with fast-paced doers in charge, and modern corporate culture.',
+    'footer.lets.talk.about'          => 'Lets talk about everything!',
+    'footer.dont.like.forms'          => 'Dont like forms? Send us an email, or call phone.',
+    'footer.phone'                    => 'Phone',
+    'footer.email'                    => 'Email',
+    'footer.address'                  => '26 Harnizonna str., Khmelnitsky city, Khmelnitsky Reagion, Ukraine, 29000',
+
+
 ];

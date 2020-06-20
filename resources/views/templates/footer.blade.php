@@ -6,22 +6,22 @@
                     <img class="img-fluid mb-2" src="{{asset('build/img/logo.svg')}}" alt="">
                 </div>
                 <div class="adress">
-                    <span>26 Harnizonna str., Khmelnitsky city, Khmelnitsky Reagion, Ukraine, 29000</span>
+                    <span>@lang('home.footer.address')</span>
                 </div>
             </div>
             <div class="column fluid">
                 <nav class="footer_nav">
                     <div class="link_wrap">
-                        <a href="/">Home</a>
+                        <a href="/">@lang('home.menu.main')</a>
                     </div>
                     <div class="link_wrap">
-                        <a href="/offers">Offers</a>
+                        <a href="/offers">@lang('home.menu.offers')</a>
                     </div>
                     <div class="link_wrap">
-                        <a href="/market">Market Pricing</a>
+                        <a href="/market">@lang('home.menu.market')</a>
                     </div>
                     <div class="link_wrap">
-                        <a href="/contacts">Contacts</a>
+                        <a href="/contacts">@lang('home.menu.contact')</a>
                     </div>
                 </nav>
             </div>
