@@ -15,13 +15,13 @@
 
         <div class="row">
             <div class="col-12 col-md-7 mt-4">
-                <h1>Offers</h1>
+                <h1>@lang('proposals.prop')</h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <span>Feel free to contact us if you need any further information</span>
+                <span>@lang('proposals.prop.def')</span>
             </div>
         </div>
 
