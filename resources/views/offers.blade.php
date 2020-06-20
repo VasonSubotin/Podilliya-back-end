@@ -86,7 +86,7 @@
                 <div class="col-12 col-md-4 pb-5">
                     <div class="offer_card">
                         <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer1.jpg')}}" class="image img-fluid" alt="offer4">
+                            <img src="{{asset('build/img/offer4.jpg')}}" class="image img-fluid" alt="offer4">
                             <div class="caption">743$ / t</div>
                         </div>
                         <h2 class="title">Bottleing</h2>
