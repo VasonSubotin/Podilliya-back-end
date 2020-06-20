@@ -14,4 +14,6 @@ return [
     'menu.contact.form.email' => 'E-mail',
     'menu.contact.form.text'  => 'Message',
     'header.message'  => 'We can produce and deliver up to 2000 tons of sunflower oil per month',
+    'header.our.price'          => 'Our price',
+    'content.what.we.offer'          => 'What we offer',
 ];

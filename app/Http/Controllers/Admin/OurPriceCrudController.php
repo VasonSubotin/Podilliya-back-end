@@ -28,7 +28,7 @@ class OurPriceCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\OurPrice::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/ourprice');
-        CRUD::setEntityNameStrings('ourprice', 'our_prices');
+        CRUD::setEntityNameStrings('Our Price', 'our_prices');
     }
 
     /**
@@ -39,8 +39,10 @@ class OurPriceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        $this->crud->addColumn(['name' => 'name', 'type' => 'text', 'label' => 'Culture name']);
-        $this->crud->addColumn(['name' => 'price', 'type' => 'text', 'label' => 'Price']);
+        $this->crud->addColumn(['name' => 'culture_name_en', 'type' => 'text', 'label' => 'Culture name EN']);
+        $this->crud->addColumn(['name' => 'culture_name_uk', 'type' => 'text', 'label' => 'Culture name UK']);
+        $this->crud->addColumn(['name' => 'price_en', 'type' => 'text', 'label' => 'Price EN']);
+        $this->crud->addColumn(['name' => 'price_uk', 'type' => 'text', 'label' => 'Price UK']);
 
 
         /**
@@ -60,8 +62,10 @@ class OurPriceCrudController extends CrudController
     {
 
 
-        $this->crud->addField(['name' => 'name', 'type' => 'text', 'label' => 'Culture name']);
-        $this->crud->addField(['name' => 'price', 'type' => 'text', 'label' => 'Price']);
+        $this->crud->addField(['name' => 'culture_name_en', 'type' => 'text', 'label' => 'Culture name EN']);
+        $this->crud->addField(['name' => 'culture_name_uk', 'type' => 'text', 'label' => 'Culture name UK']);
+        $this->crud->addField(['name' => 'price_en', 'type' => 'text', 'label' => 'Price EN']);
+        $this->crud->addField(['name' => 'price_uk', 'type' => 'text', 'label' => 'Price UK']);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

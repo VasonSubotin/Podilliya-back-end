@@ -14,4 +14,6 @@ return [
     'menu.contact.form.email' => 'Електронна адреса',
     'menu.contact.form.text'  => 'Текст повідомлення',
     'header.message'          => 'Ми можемо виробляти і поставляти до 2000 тонн соняшникової олії на місяць',
+    'header.our.price'          => 'Наші ціни',
+    'content.what.we.offer'          => 'Наша продукція',
 ];

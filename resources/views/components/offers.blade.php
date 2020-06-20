@@ -1,7 +1,7 @@
 <div class="offers">
     <div class="row">
         <div class="col-12">
-            <h2 class="mb-4">What we offer</h2>
+            <h2 class="mb-4">@lang('home.content.what.we.offer')</h2>
         </div>
     </div>
     <div class="row">
