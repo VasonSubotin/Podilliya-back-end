@@ -15,13 +15,13 @@
         @include('components.header')
         <div class="row">
             <div class="col-12 col-lg-7 mt-4">
-                <h1>Sunflower market</h1>
+                <h1>@lang('offers.market.sunflower.market')</h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <span>Check price for sunflower in realtime</span>
+                <span>@lang('offers.market.check.price')</span>
             </div>
         </div>
 

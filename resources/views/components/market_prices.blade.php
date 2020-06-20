@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col d-flex flex-column justify-content-end order-lg-2">
             <div class="item">
-                <h2 class="title">World Price</h2>
+                <h2 class="title">@lang('offers.market.world.price')</h2>
                 <div class="table">
                     <div class="table_row">
                         <div class="label">Chicago market (refined oil)</div>
@@ -30,7 +30,7 @@
         </div>
         <div class="col mb-lg-4 d-flex flex-column justify-content-end order-lg-1">
             <div class="item">
-                <h2 class="title">Our price</h2>
+                <h2 class="title">@lang('offers.market.our.price')</h2>
                 <div class="table">
                     <div class="table_row">
                         <div class="label">Refined Oil</div>
