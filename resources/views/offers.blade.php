@@ -37,7 +37,7 @@
                 <div class="col-12 col-md-4 pb-5">
                     <div class="offer_card">
                         <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer1.jpg')}}" class="image img-fluid" alt="offer1">
+                            <img src="{{asset('build/img/offer2.jpg')}}" class="image img-fluid" alt="offer1">
                             <div class="caption">743$ / t</div>
                         </div>
                         <h2 class="title">Crude sunflower oil</h2>
@@ -54,7 +54,7 @@
                 <div class="col-12 col-md-4 pb-5">
                     <div class="offer_card">
                         <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer2.jpg')}}" class="image img-fluid" alt="offer2">
+                            <img src="{{asset('build/img/offer1.jpg')}}" class="image img-fluid" alt="offer2">
                             <div class="caption">743$ / t</div>
                         </div>
                         <h2 class="title">Refined sunflower oil</h2>
@@ -102,7 +102,7 @@
                 <div class="col-12 col-md-4 pb-5">
                     <div class="offer_card">
                         <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer2.jpg')}}" class="image img-fluid" alt="offer5">
+                            <img src="{{asset('build/img/about_us.jpg')}}" class="image img-fluid five-offer-size" alt="offer5">
                             <div class="caption">743$ / t</div>
                         </div>
                         <h2 class="title">Logistics</h2>
