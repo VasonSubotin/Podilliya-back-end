@@ -5,7 +5,7 @@
                 <span aria-hidden="true"></span>
             </button>
             <div class="contact_form_wrap">
-                <h2>Contact us</h2>
+                <h2>@lang('home.menu.contact.us')</h2>
                 <p class="mb-4">@lang('home.menu.get.in.touch')</p>
                 <form action="/contacts" method="post" id="contact_us_form">
                     <div class="form-group ffl-wrapper">

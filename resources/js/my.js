@@ -37,6 +37,8 @@ $(document).ready(function () {
         console.log(contact);
         event.preventDefault();
         axios.post('/api/contacts', contact);
+        $('#contact_us').modal('toggle');
+        $('#contact_us_form')[0].reset();
     });
 
     $("#footer_contact_form").submit(function( event ) {
@@ -44,6 +46,7 @@ $(document).ready(function () {
         console.log(contact);
         event.preventDefault();
         axios.post('/api/contacts', contact);
+        $('#footer_contact_form')[0].reset();
     });
 
 
