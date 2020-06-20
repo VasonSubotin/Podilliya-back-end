@@ -41,58 +41,21 @@
     <div class="container-fluid">
         <div class="contacts">
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="item">
-                        <div class="img_block">
-                            <img src="{{asset('build/img/contacts/contact1.jpg')}}" alt="" class="image img-fluid">
-                        </div>
-                        <div class="text_block">
-                            <h2 class="title">Yuiry Timoschuk</h2>
-                            <div class="position">Director</div>
-                            <a href="tel:+380679242626" class="link">+38 (067) 924-26-26</a>
-                            <a href="mailto:yuriy.timoshuk@podiliyagold.com" class="link">yuriy.timoshuk@podiliyagold.com</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="item">
-                        <div class="img_block">
-                            <img src="{{asset('build/img/contacts/contact2.jpg')}}" alt="" class="image img-fluid">
-                        </div>
-                        <div class="text_block">
-                            <h2 class="title">Volodimir Chernuha</h2>
-                            <div class="position">Tech Specialist</div>
-                            <a href="tel:+380968708439" class="link">+38 (096) 870-84-39</a>
-                            <a href="mailto:Volodimir.chernuha@podiliyagold.com" class="link">Volodimir.chernuha@podiliyagold.com</a>
+                @foreach($personals as $personal)
+                    <div class="col-12 col-md-6">
+                        <div class="item">
+                            <div class="img_block">
+                                <img src="{{asset($personal->photo_path)}}" alt="" class="image img-fluid">
+                            </div>
+                            <div class="text_block">
+                                <h2 class="title">{{$personal->full_name}}</h2>
+                                <div class="position">{{$personal->department}}</div>
+                                <a href="tel:+380679242626" class="link">{{$personal->phone}}</a>
+                                <a href="mailto:{{$personal->email}}" class="link">{{$personal->email}}</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="item">
-                        <div class="img_block">
-                            <img src="{{asset('build/img/contacts/contact3.svg')}}" alt="" class="image img-fluid">
-                        </div>
-                        <div class="text_block">
-                            <h2 class="title">Oksana Lanskorunska</h2>
-                            <div class="position">Sales Departament</div>
-                            <a href="tel:+380964305845" class="link">+38 (096) 430-58-45</a>
-                            <a href="mailto:oksana.lanskorunska@podiliyagold.com" class="link">oksana.lanskorunska@podiliyagold.com</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="item">
-                        <div class="img_block">
-                            <img src="{{asset('build/img/contacts/contact4.jpg')}}" alt="" class="image img-fluid">
-                        </div>
-                        <div class="text_block">
-                            <h2 class="title">Anna Timoschuk</h2>
-                            <div class="position">Sales Departament</div>
-                            <a href="tel:+380684501225" class="link">+38 (068) 450-12-25</a>
-                            <a href="mailto:anna.timoshuk@podiliyagold.com" class="link">anna.timoshuk@podiliyagold.com</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

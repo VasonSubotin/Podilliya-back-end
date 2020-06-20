@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MarketData;
 use App\Models\OurPrice;
+use App\Models\Personal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -37,7 +38,17 @@ class AppController extends Controller
 
     public function contacts(Request $request)
     {
-        return view('contacts', compact('request'));
+        $locale = App::getLocale();
+        $personals = Personal::all(
+            [
+                'full_name_' . $locale . ' as full_name',
+                'department_' . $locale . ' as department',
+                'phone',
+                'email',
+                'photo_path',
+            ]
+        );
+        return view('contacts', compact('request', 'personals'));
     }
 
 
