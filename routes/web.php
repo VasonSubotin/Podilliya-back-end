@@ -17,3 +17,5 @@ Route::get('/', 'AppController@index');
 Route::get('/contacts', 'AppController@contacts');
 Route::get('/market', 'AppController@market');
 Route::get('/offers', 'AppController@offers');
+
+Route::get('/{lang}', 'LocalizationController@localization')->name('localization.lang');
