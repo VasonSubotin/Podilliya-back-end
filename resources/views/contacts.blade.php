@@ -15,8 +15,8 @@
 
         <div class="row align-items-center pt-4 pb-3 pb-md-0">
             <div class="col flex-grow-1">
-                <h1>Contacts</h1>
-                <span class="d-none d-md-block">Feel free to contact us if you need any further information</span>
+                <h1>@lang('contacts.contact')</h1>
+                <span class="d-none d-md-block">@lang('contacts.contact.def')</span>
             </div>
             <div class="col flex-grow-0 d-none d-md-block">
                 <div class="links_block">
