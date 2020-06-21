@@ -36,19 +36,22 @@
             <div class="row">
 
                 @foreach($offers as $offer)
-                    <div class="col-12 col-md-4 pb-4 pb-md-0">
+
+                    <div class="col-12 col-md-4 pb-5">
                         <div class="offer_card">
                             <div class="image_wrap mb-4">
                                 <img src="{{$offer->image_path}}" class="image img-fluid" alt="offer1">
                                 <div class="caption">{{$offer->price}}</div>
                             </div>
-                            <h3 class="title">{{$offer->heading}}</h3>
+                            <h2 class="title">{{$offer->heading}}</h2>
                             <div class="description mb-2">
                                 {{$offer->partial_description}}
                             </div>
                             <a href="javascript:void(0);" data-toggle="modal" data-target="#offer{{$offer->id}}" class="more">Read more</a>
                         </div>
                     </div>
+
+
 
 
                     <div class="modal fade" id="offer{{$offer->id}}" tabindex="-1" role="dialog" aria-labelledby="Offer{{$offer->id}}" aria-hidden="true">

@@ -50,6 +50,9 @@ class OfferRequest extends FormRequest
             'partial_description_uk' => 'required',
             'full_description_en'    => 'required',
             'full_description_uk'    => 'required',
+            'order_number'           => 'required',
+            'is_read_more'           => 'required',
+            'is_home_page'           => 'required',
         ];
     }
 

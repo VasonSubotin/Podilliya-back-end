@@ -21,7 +21,17 @@ class AppController extends Controller
             ]
         );
 
-        return view('index', compact('request', 'ourPrices'));
+        $offers = Offer::all(
+            [
+                'id',
+                'partial_description_' . $locale . ' as partial_description',
+                'heading_' . $locale . ' as heading',
+                'image_path',
+                'price_' . $locale . ' as price',
+                'full_description_' . $locale . ' as full_description',
+            ]
+        );
+        return view('index', compact('request', 'ourPrices', 'offers'));
     }
 
     public function offers(Request $request)

@@ -39,7 +39,9 @@ class OfferCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-
+        $this->crud->addColumn(['name' => 'is_home_page', 'type' => 'boolean', 'label' => 'Do you want to see offer at home page']);
+        $this->crud->addColumn(['name' => 'is_read_more', 'type' => 'boolean', 'label' => 'Show "Read more" modal?']);
+        $this->crud->addColumn(['name' => 'order_number', 'type' => 'number', 'label' => 'Order number']);
         $this->crud->addColumn(['name' => 'price_en', 'type' => 'text', 'label' => 'Price Eng']);
         $this->crud->addColumn(['name' => 'price_uk', 'type' => 'text', 'label' => 'Price Ukr']);
         $this->crud->addColumn(['name' => 'image_path', 'type' => 'image', 'label' => 'Image']);
@@ -76,6 +78,9 @@ class OfferCrudController extends CrudController
         $this->crud->addField(['name' => 'partial_description_uk', 'type' => 'text', 'label' => 'Partial Description Ukr']);
         $this->crud->addField(['name' => 'full_description_en', 'type' => 'ckeditor', 'label' => 'Full Description Eng']);
         $this->crud->addField(['name' => 'full_description_uk', 'type' => 'ckeditor', 'label' => 'Full Description Urk']);
+        $this->crud->addField(['name' => 'is_home_page', 'type' => 'boolean', 'label' => 'Do you want to see offer at home page']);
+        $this->crud->addField(['name' => 'is_read_more', 'type' => 'boolean', 'label' => 'Show "Read more" modal?']);
+        $this->crud->addField(['name' => 'order_number', 'type' => 'number', 'label' => 'Order number']);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

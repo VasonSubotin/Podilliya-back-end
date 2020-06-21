@@ -47,6 +47,7 @@ class PersonalCrudController extends CrudController
         $this->crud->addColumn(['name' => 'phone', 'type' => 'text', 'label' => 'Phone']);
         $this->crud->addColumn(['name' => 'email', 'type' => 'text', 'label' => 'Email']);
         $this->crud->addColumn(['name' => 'photo_path', 'type' => 'image', 'label' => 'Photo']);
+        $this->crud->addColumn(['name' => 'order_number', 'type' => 'number', 'label' => 'Order number']);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -72,6 +73,7 @@ class PersonalCrudController extends CrudController
         $this->crud->addField(['name' => 'phone', 'type' => 'text', 'label' => 'Phone']);
         $this->crud->addField(['name' => 'email', 'type' => 'text', 'label' => 'Email']);
         $this->crud->addField(['name' => 'photo_path', 'type' => 'image', 'label' => 'Photo']);
+        $this->crud->addField(['name' => 'order_number', 'type' => 'number', 'label' => 'Order number']);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
