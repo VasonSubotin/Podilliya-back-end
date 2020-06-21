@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MarketData;
+use App\Models\Offer;
 use App\Models\OurPrice;
 use App\Models\Personal;
 use Illuminate\Http\Request;
@@ -25,7 +26,21 @@ class AppController extends Controller
 
     public function offers(Request $request)
     {
-        return view('offers', compact('request'));
+        $locale   = App::getLocale();
+
+        $offers = Offer::all(
+            [
+                'id',
+                'partial_description_' . $locale . ' as partial_description',
+                'heading_' . $locale . ' as heading',
+                'image_path',
+                'price_' . $locale . ' as price',
+                'full_description_' . $locale . ' as full_description',
+
+            ]
+        );
+
+        return view('offers', compact('request', 'offers'));
     }
 
 

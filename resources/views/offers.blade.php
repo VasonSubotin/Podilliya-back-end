@@ -34,85 +34,43 @@
     <div class="container-fluid">
         <div class="offers">
             <div class="row">
-                <div class="col-12 col-md-4 pb-5">
-                    <div class="offer_card">
-                        <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer2.jpg')}}" class="image img-fluid" alt="offer1">
-                            <div class="caption">743$ / t</div>
+
+                @foreach($offers as $offer)
+                    <div class="col-12 col-md-4 pb-4 pb-md-0">
+                        <div class="offer_card">
+                            <div class="image_wrap mb-4">
+                                <img src="{{$offer->image_path}}" class="image img-fluid" alt="offer1">
+                                <div class="caption">{{$offer->price}}</div>
+                            </div>
+                            <h3 class="title">{{$offer->heading}}</h3>
+                            <div class="description mb-2">
+                                {{$offer->partial_description}}
+                            </div>
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#offer{{$offer->id}}" class="more">Read more</a>
                         </div>
-                        <h2 class="title">Crude sunflower oil</h2>
-                        <div class="description mb-2">
-                            Crude oil is obtained through mechanical pressing only. In the practise, we use two
-                            subsequent screw presses together with continuous heating and moisturizing coming from the
-                            boilers.
-                            We produce and sell oil
-                        </div>
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#offer1" class="more">Read
-                            more</a>
                     </div>
-                </div>
-                <div class="col-12 col-md-4 pb-5">
-                    <div class="offer_card">
-                        <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer1.jpg')}}" class="image img-fluid" alt="offer2">
-                            <div class="caption">743$ / t</div>
+
+
+                    <div class="modal fade" id="offer{{$offer->id}}" tabindex="-1" role="dialog" aria-labelledby="Offer{{$offer->id}}" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                                <div class="modal-header">
+                                    <span class="modal-title">Crude sunflower oil</span>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{asset($offer->image_path)}}" alt="" class="modal_image img-fluid">
+                                    {!! $offer->full_description !!}
+                                </div>
+                            </div>
                         </div>
-                        <h2 class="title">Refined sunflower oil</h2>
-                        <div class="description mb-2">
-                            results from the basic steps, namley : degumming, neutralising, bleaching, and dewaxing.
-                            We produce refined oil and offer refining as the service
-                        </div>
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#offer2" class="more">Read
-                            more</a>
                     </div>
-                </div>
-                <div class="col-12 col-md-4 pb-5">
-                    <div class="offer_card">
-                        <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer3.jpg')}}" class="image img-fluid" alt="offer3">
-                            <div class="caption">743$ / t</div>
-                        </div>
-                        <h2 class="title">Sunflower press cake is</h2>
-                        <div class="description mb-2">
-                            the residuals of sunflower kernel after oil pressing has a positive impact on the metabolism
-                            and immune system of young animals. It is a valuable high-protein additive for the
-                            production of combined fodders.
-                            We produce press cake and offer it as the service
-                        </div>
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#offer3" class="more">Read
-                            more</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 pb-5">
-                    <div class="offer_card">
-                        <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/offer4.jpg')}}" class="image img-fluid" alt="offer4">
-                            <div class="caption">743$ / t</div>
-                        </div>
-                        <h2 class="title">Bottleing</h2>
-                        <div class="description mb-2">
-                            Crude oil is obtained through mechanical pressing only. In the practise, we use two
-                            subsequent screw presses together with continuous heating and moisturizing coming from the
-                            boilers.
-                        </div>
-                        <!--                        <a href="javascript:void(0);" data-toggle="modal" data-target="#offer4" class="more">Read-->
-                        <!--                            more</a>-->
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 pb-5">
-                    <div class="offer_card">
-                        <div class="image_wrap mb-4">
-                            <img src="{{asset('build/img/about_us.jpg')}}" class="image img-fluid five-offer-size" alt="offer5">
-                            <div class="caption">743$ / t</div>
-                        </div>
-                        <h2 class="title">Logistics</h2>
-                        <div class="description mb-2">
-                            We offer logistis services for the clients
-                        </div>
-                        <!--                        <a href="javascript:void(0);" data-toggle="modal" data-target="#offer5" class="more">Read-->
-                        <!--                            more</a>-->
-                    </div>
-                </div>
+                @endforeach
+
+
+
             </div>
         </div>
     </div>
