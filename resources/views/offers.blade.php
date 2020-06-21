@@ -40,14 +40,16 @@
                     <div class="col-12 col-md-4 pb-5">
                         <div class="offer_card">
                             <div class="image_wrap mb-4">
-                                <img src="{{$offer->image_path}}" class="image img-fluid" alt="offer1">
+                                <img src="{{$offer->image_path}}" class="image img-fluid" alt="offer{{$offer->id}}">
                                 <div class="caption">{{$offer->price}}</div>
                             </div>
                             <h2 class="title">{{$offer->heading}}</h2>
                             <div class="description mb-2">
                                 {{$offer->partial_description}}
                             </div>
-                            <a href="javascript:void(0);" data-toggle="modal" data-target="#offer{{$offer->id}}" class="more">Read more</a>
+                            @if($offer->is_read_more)
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#offer{{$offer->id}}" class="more">Read more</a>
+                            @endif
                         </div>
                     </div>
 
@@ -61,7 +63,7 @@
                                     <span aria-hidden="true"></span>
                                 </button>
                                 <div class="modal-header">
-                                    <span class="modal-title">Crude sunflower oil</span>
+                                    <span class="modal-title">{{$offer->heading}}</span>
                                 </div>
                                 <div class="modal-body">
                                     <img src="{{asset($offer->image_path)}}" alt="" class="modal_image img-fluid">

@@ -21,7 +21,7 @@ class AppController extends Controller
             ]
         );
 
-        $offers = Offer::all(
+        $offers = Offer::where('is_home_page' , true)->orderBy('order_number', 'asc')->get(
             [
                 'id',
                 'partial_description_' . $locale . ' as partial_description',
@@ -38,7 +38,7 @@ class AppController extends Controller
     {
         $locale   = App::getLocale();
 
-        $offers = Offer::all(
+        $offers = Offer::orderBy('order_number', 'asc')->get(
             [
                 'id',
                 'partial_description_' . $locale . ' as partial_description',
@@ -46,6 +46,7 @@ class AppController extends Controller
                 'image_path',
                 'price_' . $locale . ' as price',
                 'full_description_' . $locale . ' as full_description',
+                'is_read_more'
 
             ]
         );
