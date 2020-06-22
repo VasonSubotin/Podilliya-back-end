@@ -32,7 +32,7 @@
                         </div>
                         <div class="modal-body">
                             <img src="{{asset($offer->image_path)}}" alt="" class="modal_image img-fluid">
-                            {{$offer->full_description}}
+                            {!! $offer->full_description !!}
                         </div>
                     </div>
                 </div>
