@@ -80,6 +80,7 @@ class OfferCrudController extends CrudController
         $this->crud->addField(['name' => 'full_description_uk', 'type' => 'ckeditor', 'label' => 'Full Description Urk']);
         $this->crud->addField(['name' => 'is_home_page', 'type' => 'boolean', 'label' => 'Do you want to see offer at home page']);
         $this->crud->addField(['name' => 'is_read_more', 'type' => 'boolean', 'label' => 'Show "Read more" modal?']);
+        $this->crud->addField(['name' => 'is_offer_page', 'type' => 'boolean', 'label' => 'Show On Offer Page?']);
         $this->crud->addField(['name' => 'order_number', 'type' => 'number', 'label' => 'Order number']);
 
         /**

@@ -28,7 +28,7 @@
                             <span aria-hidden="true"></span>
                         </button>
                         <div class="modal-header">
-                            <span class="modal-title">Crude sunflower oil</span>
+                            <span class="modal-title">{{$offer->heading}}</span>
                         </div>
                         <div class="modal-body">
                             <img src="{{asset($offer->image_path)}}" alt="" class="modal_image img-fluid">

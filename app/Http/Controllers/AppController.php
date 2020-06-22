@@ -38,7 +38,7 @@ class AppController extends Controller
     {
         $locale   = App::getLocale();
 
-        $offers = Offer::orderBy('order_number', 'asc')->get(
+        $offers = Offer::where('is_offer_page', true)->orderBy('order_number', 'asc')->get(
             [
                 'id',
                 'partial_description_' . $locale . ' as partial_description',
