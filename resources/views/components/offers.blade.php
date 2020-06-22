@@ -16,7 +16,9 @@
                     <div class="description mb-2">
                         {{$offer->partial_description}}
                     </div>
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#offer{{$offer->id}}" class="more">Read more</a>
+                    @if ($offer->is_read_more)
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#offer{{$offer->id}}" class="more">Read more</a>
+                    @endif
                 </div>
             </div>
 

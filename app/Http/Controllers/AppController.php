@@ -29,6 +29,7 @@ class AppController extends Controller
                 'image_path',
                 'price_' . $locale . ' as price',
                 'full_description_' . $locale . ' as full_description',
+                'is_read_more',
             ]
         );
         return view('index', compact('request', 'ourPrices', 'offers'));
