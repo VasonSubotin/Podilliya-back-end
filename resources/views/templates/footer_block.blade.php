@@ -2,8 +2,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-7 order-2 order-md-1 mt-4 mt-md-0">
-                <h2 class="title">@lang('home.footer.lets.talk.about')</h2>
-                <p class="mt-3 mb-4">@lang('home.footer.dont.like.forms')</p>
+                @if (app()->getLocale() === 'en')
+                    <h2 class="title">@lang('home.footer.lets.talk.about')</h2>
+                    <p class="mt-3 mb-4">@lang('home.footer.dont.like.forms')</p>
+                @else
+                    <h2 class="title">@lang('home.footer.dont.like.forms')</h2>
+                    <p class="mt-3 mb-4"></p>
+                @endif
                 <div class="row_info right_grow">
                     <div class="label">@lang('home.footer.phone')</div>
                     <div class="caption"><a href="tel:+380508345574" class="href">+ 38 (050) 834 55 74</a></div>
