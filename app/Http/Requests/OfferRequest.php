@@ -43,6 +43,7 @@ class OfferRequest extends FormRequest
             'image_path'             => [
                 'required',
                 Rule::dimensions()->maxHeight(256)->maxWidth(352),
+                'nullable'
             ],
             'heading_en'             => 'required',
             'heading_uk'             => 'required',
@@ -53,6 +54,8 @@ class OfferRequest extends FormRequest
             'order_number'           => 'required',
             'is_read_more'           => 'required',
             'is_home_page'           => 'required',
+            'is_offer_page' => 'required',
+
         ];
     }
 
