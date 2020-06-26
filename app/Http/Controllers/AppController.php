@@ -63,6 +63,7 @@ class AppController extends Controller
 
         $marketData = MarketData::select(
             [
+                'id',
                 'culture_' . $locale               . ' as culture',
                 'delivery_due_data_' . $locale     . ' as delivery_due_data',
                 'delivery_terms_' . $locale        . ' as delivery_terms',
