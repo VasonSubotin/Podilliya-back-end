@@ -36,7 +36,7 @@
                         <td>{{$data->company_name}}</td>
                         <td>{{$data->published_at}}</td>
                     </tr>
-                    @if ($data->offer_type_en === 'sell' || $data->offer_type_uk === 'продам')
+                    @if ($data->offer_type === 'sell' || $data->offer_type === 'продам')
                         @include('modals.sell_id', ['data' => $data])
                     @else
                         @include('modals.buy_id', ['data' => $data])
