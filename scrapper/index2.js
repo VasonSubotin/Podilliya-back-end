@@ -24,7 +24,7 @@ const languages = {
 
 
 
-const URL = languages.en.culture_sunflower_oil_cake;
+const URL = languages.en.culture_oil;
 const graintrade = 'https://graintrade.com.ua';
 
 const headers = {
