@@ -17,22 +17,30 @@
 
                 @foreach($marketData as $data)
                     @php
-                        if ($data->offer_type_en == 'sell') {
+                        if ($data->offer_type === 'sell' || $data->offer_type === 'продам') {
+                            $modalTypeAndRef = '#sell_' . $data->id;
                             $buttonType = 'btn btn-sm btn-sell btn-primary w-100';
                         } else {
+                            $modalTypeAndRef = '#buy_' . $data->id;
                             $buttonType = 'btn btn-sm btn-buy btn-primary w-100';
                         }
                     @endphp
-                    <tr data-toggle="modal" data-target="#buy_id">
+
+                    <tr data-toggle="modal" data-target="{{$modalTypeAndRef}}">
                         <td>
-                            <button class="{{$buttonType}}">{{$data->offer_type_en}}</button>
+                            <button class="{{$buttonType}}">{{$data->offer_type}}</button>
                         </td>
-                        <td>{{$data->price_en}}</td>
-                        <td>{{$data->volume_en}}</td>
-                        <td>{{$data->culture_en}}</td>
-                        <td>{{$data->company_name_en}}</td>
-                        <td>{{\Carbon\Carbon::parse($data->create_at)->toDateTimeString()}}</td>
+                        <td>{{$data->price}}</td>
+                        <td>{{$data->volume}}</td>
+                        <td>{{$data->culture}}</td>
+                        <td>{{$data->company_name}}</td>
+                        <td>{{$data->published_at}}</td>
                     </tr>
+                    @if ($data->offer_type_en === 'sell' || $data->offer_type_uk === 'продам')
+                        @include('modals.sell_id', ['data' => $data])
+                    @else
+                        @include('modals.buy_id', ['data' => $data])
+                    @endif
                 @endforeach
                 </tbody>
 

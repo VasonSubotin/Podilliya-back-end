@@ -1,4 +1,4 @@
-<div class="modal fade" id="buy_id" tabindex="-1" role="dialog" aria-labelledby="Buy ID" aria-hidden="true">
+<div class="modal fade" id="buy_{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="Buy ID" aria-hidden="true">
     <div class="modal-dialog modal_contact modal_market" role="document">
         <div class="modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -7,71 +7,67 @@
             <div class="modal_market_data">
                 <div class="row">
                     <div class="col">
-                        <h2 class="m-0">Buy</h2>
+                        <h2 class="m-0">@lang('market.operation.type.sell')</h2>
                     </div>
-                    <div class="col flex-grow-0">
-                        <button class="btn btn-more">More</button>
-                    </div>
+                    {{--                    <div class="col flex-grow-0">--}}
+                    {{--                        <button class="btn btn-more">More</button>--}}
+                    {{--                    </div>--}}
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="date">07 April 2020, 21:32</div>
+                        <div class="date">{{$data->create_at}}</div>
                     </div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">Type</div>
-                    <div class="data_text">Масло подсолнечное</div>
+                    <div class="data_label">@lang('market.operation.crop.type')</div>
+                    <div class="data_text">{{$data->culture}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">Объем</div>
-                    <div class="data_text">10000 (т.)</div>
+                    <div class="data_label">@lang('market.operation.crop.volume')</div>
+                    <div class="data_text">{{$data->volume}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">НДС</div>
-                    <div class="data_text">Производитель</div>
+                    <div class="data_label">@lang('market.operation.crop.vat')</div>
+                    <div class="data_text">{{$data->vat}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">Условия поставки:</div>
-                    <div class="data_text">EXW</div>
+                    <div class="data_label">@lang('market.terms')</div>
+                    <div class="data_text">{{$data->delivery_terms}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">Объем</div>
-                    <div class="data_text">10000 (т.)</div>
-                </div>
-                <div class="data_row">
-                    <div class="data_label">Место</div>
-                    <div class="data_text">Херсонская обл., г. Херсон, Суворовский район</div>
+                    <div class="data_label">@lang('market.city')</div>
+                    <div class="data_text">{{$data->location}}</div>
                 </div>
                 <div class="row half_space">
                     <div class="col d-flex">
                         <div class="data_row">
-                            <div class="data_label">Срок поставки</div>
-                            <div class="data_text">-</div>
+                            <div class="data_label">@lang('market.delivery.terms')</div>
+                            <div class="data_text">{{$data->delivery}}</div>
                         </div>
                     </div>
                     <div class="col d-flex">
                         <div class="data_row">
-                            <div class="data_label">Месяц поставки</div>
-                            <div class="data_text">Aпрель</div>
+                            <div class="data_label">@lang('market.delivery.month')</div>
+                            <div class="data_text">{{$data->month_of_delivery}}</div>
                         </div>
                     </div>
                     <div class="col d-flex">
                         <div class="data_row">
-                            <div class="data_label">Срок действия</div>
-                            <div class="data_text">30</div>
+                            <div class="data_label">@lang('market.valid.until')</div>
+                            <div class="data_text">{{$data->valid_unitl}}</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal_footer">
                 <div class="row">
-                    <div class="col">ЧП Лек-Стар</div>
+                    <div class="col">{{$data->company_name}}</div>
                 </div>
                 <div class="row">
-                    <div class="col">Юлия 0979986556</div>
+                    <div class="col">{{$data->company_contact}}, <a href="tel:{{$data->company_telephone}}">{{$data->company_telephone}}</a></div>
                 </div>
                 <div class="row">
-                    <div class="col">Херсонская обл., г. Херсон, Суворовский район</div>
+                    <div class="col">{{$data->company_address}}</div>
                 </div>
                 <div class="row">
                     <div class="col text-nowrap flex-grow-0">

@@ -2,5 +2,3 @@
 @include('modals.offer2')
 @include('modals.offer3')
 @include('modals.contact_us')
-@include('modals.buy_id')
-@include('modals.sell_id')

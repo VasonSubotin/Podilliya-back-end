@@ -45,6 +45,7 @@ const headers = {
 
 
 (async () => {
+
     const response = await request({
         uri: URL, //lang toto
         headers: headers,
@@ -85,84 +86,163 @@ const headers = {
         sourceLinksNodes.each((index, node) => {
             let urlName = node.children[10].children[0].data
             let id = 'id' + node.children[11].children[0].data;
-            let fullUrl = graintrade + '/en/birzha/' + urlName + '-' + id
-            
-            contentLinks.push(fullUrl); // todo lang fix
+            let fullUrlEn = graintrade + '/en/birzha/' + urlName + '-' + id
+            let fullUrlUk = graintrade + '/birzha/' + urlName + '-' + id
+
+            contentLinks.push({fullUrlEn, fullUrlUk}); // todo lang fix
         });
     }
 
     console.log('Scrapping content start')
     for(const contentUrl of contentLinks) {
     
-        const response = await request({
-            uri: contentUrl,
+        const responseEn = await request({
+            uri: contentUrl.fullUrlEn,
             headers: headers,
             gzip: true,
         });
-        let $ = cheerio.load(response);
+
+        const responseUk = await request({
+            uri: contentUrl.fullUrlUk,
+            headers: headers,
+            gzip: true,
+        });
+
+        let $en = cheerio.load(responseEn);
+        let $uk = cheerio.load(responseUk, {decodeEntities: false});
         
         
-        let offerType = $('.views-birzha').html().toLowerCase().search('buy') >= 0 ? 'buy' : 'sell';
+        let offerTypeEn = $en('.views-birzha').html().toLowerCase().search('buy') >= 0 ? 'buy' : 'sell';
+        let offerTypeUk = $uk('.views-birzha').html().toLowerCase().search('куплю') >= 0 ? 'куплю' : 'продам';
         // let linkToBuyerSeller = $('.Main-singleContent');
-        let script = parseScript($('.Main-singleContent > script:nth-child(1)').contents()[0].data);//company info link
+        let scriptEn = parseScript($en('.Main-singleContent > script:nth-child(1)').contents()[0].data);//company info link
+        let scriptUk = parseScript($uk('.Main-singleContent > script:nth-child(1)').contents()[0].data);//company info link
 
 
 
-        let culture = $('.item_deteils_ > div:nth-child(1) > div:nth-child(1) > b:nth-child(1)').text().trim();
-        let volume = $('.item_deteils_ > div:nth-child(1) > div:nth-child(2) > b:nth-child(1)').text().trim();
-        let price = $('.item_deteils_ > div:nth-child(1) > div:nth-child(3) > b:nth-child(1)').text().trim();
-        let vat = $('.item_deteils_ > div:nth-child(1) > div:nth-child(4) > b:nth-child(1)').text().trim();
-        let description = $('.addInfoTextView > div:nth-child(2) > p:nth-child(1)').text().trim();
-        let deliveryTerms = $('.item_deteils_ > div:nth-child(2) > div:nth-child(1) > b:nth-child(1)').text().trim();
-        let location = $('.item_deteils_ > div:nth-child(2) > div:nth-child(2) > b:nth-child(1)').text().trim();
-        location += $('.item_deteils_ > div:nth-child(2) > div:nth-child(2) > b:nth-child(2)').text().trim();
-        let processingCompany = $('.item_deteils_ > div:nth-child(2) > div:nth-child(3) > b:nth-child(1) > a:nth-child(1)').text().trim();
-        let deliveryDueData = $('.item_deteils_ > div:nth-child(2) > div:nth-child(4) > b:nth-child(1)').text().trim();
-        let monthOfDelivery = $('.item_deteils_ > div:nth-child(2) > div:nth-child(5) > b:nth-child(1)').text().trim();
-        let validUntil = $('.item_deteils_ > div:nth-child(2) > div:nth-child(6) > b:nth-child(1)').text().trim();
+        let cultureEn = $en('.item_deteils_ > div:nth-child(1) > div:nth-child(1) > b:nth-child(1)').text().trim();
+        let volumeEn = $en('.item_deteils_ > div:nth-child(1) > div:nth-child(2) > b:nth-child(1)').text().trim();
+        let priceEn = $en('.item_deteils_ > div:nth-child(1) > div:nth-child(3) > b:nth-child(1)').text().trim();
+        let vatEn = $en('.item_deteils_ > div:nth-child(1) > div:nth-child(4) > b:nth-child(1)').text().trim();
+        let descriptionEn = $en('.addInfoTextView > div:nth-child(2) > p:nth-child(1)').text().trim();
+        let deliveryTermsEn = $en('.item_deteils_ > div:nth-child(2) > div:nth-child(1) > b:nth-child(1)').text().trim();
+        let locationEn = $en('.item_deteils_ > div:nth-child(2) > div:nth-child(2) > b:nth-child(1)').text().trim();
+        locationEn += $en('.item_deteils_ > div:nth-child(2) > div:nth-child(2) > b:nth-child(2)').text().trim();
+        let processingCompanyEn = $en('.item_deteils_ > div:nth-child(2) > div:nth-child(3) > b:nth-child(1) > a:nth-child(1)').text().trim();
+        let deliveryDueDataEn = $en('.item_deteils_ > div:nth-child(2) > div:nth-child(4) > b:nth-child(1)').text().trim();
+        let monthOfDeliveryEn = $en('.item_deteils_ > div:nth-child(2) > div:nth-child(5) > b:nth-child(1)').text().trim();
+        let validUntilEn = $en('.item_deteils_ > div:nth-child(2) > div:nth-child(6) > b:nth-child(1)').text().trim();
+        let publishedEn = $en('.view-proposition-date').text().trim();
+
+
+        let cultureUk = $uk('.item_deteils_ > div:nth-child(1) > div:nth-child(1) > b:nth-child(1)').text().trim();
+        let volumeUk = $uk('.item_deteils_ > div:nth-child(1) > div:nth-child(2) > b:nth-child(1)').text().trim();
+        let priceUk = $uk('.item_deteils_ > div:nth-child(1) > div:nth-child(3) > b:nth-child(1)').text().trim();
+        let vatUk = $uk('.item_deteils_ > div:nth-child(1) > div:nth-child(4) > b:nth-child(1)').text().trim();
+        let descriptionUk = $uk('.addInfoTextView > div:nth-child(2) > p:nth-child(1)').text().trim();
+        let deliveryTermsUk = $uk('.item_deteils_ > div:nth-child(2) > div:nth-child(1) > b:nth-child(1)').text().trim();
+        let locationUk = $uk('.item_deteils_ > div:nth-child(2) > div:nth-child(2) > b:nth-child(1)').text().trim();
+        locationUk += $uk('.item_deteils_ > div:nth-child(2) > div:nth-child(2) > b:nth-child(2)').text().trim();
+        let processingCompanyUk = $uk('.item_deteils_ > div:nth-child(2) > div:nth-child(3) > b:nth-child(1) > a:nth-child(1)').text().trim();
+        let deliveryDueDataUk = $uk('.item_deteils_ > div:nth-child(2) > div:nth-child(4) > b:nth-child(1)').text().trim();
+        let monthOfDeliveryUk = $uk('.item_deteils_ > div:nth-child(2) > div:nth-child(5) > b:nth-child(1)').text().trim();
+        let validUntilUk = $uk('.item_deteils_ > div:nth-child(2) > div:nth-child(6) > b:nth-child(1)').text().trim();
+        let publishedUk = $uk('.view-proposition-date').text().trim();
+
+
 
         //trader if 
-        let companyLink = script.statements[1].expression.arguments[0].body.statements[19].expression.arguments[1].body.statements[0].expression.expression.value
+        let companyLinkEn = scriptEn.statements[1].expression.arguments[0].body.statements[19].expression.arguments[1].body.statements[0].expression.expression.value
+        let companyLinkUk = scriptUk.statements[1].expression.arguments[0].body.statements[19].expression.arguments[1].body.statements[0].expression.expression.value
         
-        const responseCompanyDetails = await request({
-            uri:  graintrade + companyLink,
+        const responseCompanyDetailsEn = await request({
+            uri:  graintrade + companyLinkEn,
             headers: headers,
             gzip: true,
         });
-        let $company = cheerio.load(responseCompanyDetails);
 
-        let companyName = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
-        let companyAddress = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
-        let companyContact = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
-        let companyTelephone = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
-        let companyWebsite = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(5) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1) > a:nth-child(1)').text().trim();
-        let companyRegisteredNo = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(6) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
-        let companyDirector = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(7) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
-        let companyOwner = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(8) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
-        let companyType = $company('.LastDeals > tbody:nth-child(1) > tr:nth-child(9) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        const responseCompanyDetailsUk = await request({
+            uri:  graintrade + companyLinkUk,
+            headers: headers,
+            gzip: true,
+        });
+
+        let $companyEn = cheerio.load(responseCompanyDetailsEn);
+        let $companyUk = cheerio.load(responseCompanyDetailsUk);
+
+        let companyNameEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyAddressEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyContactEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyTelephoneEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyWebsiteEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(5) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1) > a:nth-child(1)').text().trim();
+        let companyRegisteredNoEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(6) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyDirectorEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(7) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyOwnerEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(8) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyTypeEn = $companyEn('.LastDeals > tbody:nth-child(1) > tr:nth-child(9) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        
+
+
+        let companyNameUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyAddressUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyContactUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyTelephoneUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyWebsiteUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(5) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1) > a:nth-child(1)').text().trim();
+        let companyRegisteredNoUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(6) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyDirectorUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(7) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyOwnerUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(8) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+        let companyTypeUk = $companyUk('.LastDeals > tbody:nth-child(1) > tr:nth-child(9) > td:nth-child(2) > label:nth-child(1) > b:nth-child(1)').text().trim();
+
 
         let scrappedData = {
-            offerType,
-            culture,
-            volume,
-            price,
-            vat,
-            description,
-            deliveryTerms,
-            location,
-            processingCompany,
-            deliveryDueData,
-            monthOfDelivery,
-            validUntil,
-            companyName,
-            companyAddress,
-            companyContact,
-            companyTelephone,
-            companyWebsite,
-            companyRegisteredNo,
-            companyDirector,
-            companyOwner,
-            companyType
+            companyNameUk,
+            companyAddressUk,
+            companyContactUk,
+            companyTelephoneUk,
+            companyWebsiteUk,
+            companyRegisteredNoUk,
+            companyDirectorUk,
+            companyOwnerUk,
+            companyTypeUk,
+            publishedUk,
+
+            companyNameEn,
+            companyAddressEn,
+            companyContactEn,
+            companyTelephoneEn,
+            companyWebsiteEn,
+            companyRegisteredNoEn,
+            companyDirectorEn,
+            companyOwnerEn,
+            companyTypeEn,
+            publishedEn,
+
+            cultureEn,
+            volumeEn,
+            priceEn,
+            vatEn,
+            descriptionEn,
+            deliveryTermsEn,
+            locationEn,
+            processingCompanyEn,
+            deliveryDueDataEn,
+            monthOfDeliveryEn,
+            validUntilEn,
+
+            cultureUk,
+            volumeUk,
+            priceUk,
+            vatUk,
+            descriptionUk,
+            deliveryTermsUk,
+            locationUk,
+            processingCompanyUk,
+            deliveryDueDataUk,
+            monthOfDeliveryUk,
+            validUntilUk,
+
+            offerTypeEn,
+
+            offerTypeUk,
         }
 
 

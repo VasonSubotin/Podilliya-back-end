@@ -9,4 +9,6 @@ class MarketData extends Model
     protected $guarded = [];
 
     protected $table = 'market_data';
+
+    public $timestamps = false;
 }

@@ -13,7 +13,7 @@ class AppController extends Controller
 {
     public function index(Request $request)
     {
-        $locale   = App::getLocale();
+        $locale    = App::getLocale();
         $ourPrices = OurPrice::all(
             [
                 'price_' . $locale . ' as price',
@@ -21,7 +21,7 @@ class AppController extends Controller
             ]
         );
 
-        $offers = Offer::where('is_home_page' , true)->orderBy('order_number', 'asc')->get(
+        $offers = Offer::where('is_home_page', true)->orderBy('order_number', 'asc')->get(
             [
                 'id',
                 'partial_description_' . $locale . ' as partial_description',
@@ -32,12 +32,13 @@ class AppController extends Controller
                 'is_read_more',
             ]
         );
+
         return view('index', compact('request', 'ourPrices', 'offers'));
     }
 
     public function offers(Request $request)
     {
-        $locale   = App::getLocale();
+        $locale = App::getLocale();
 
         $offers = Offer::where('is_offer_page', true)->orderBy('order_number', 'asc')->get(
             [
@@ -47,7 +48,7 @@ class AppController extends Controller
                 'image_path',
                 'price_' . $locale . ' as price',
                 'full_description_' . $locale . ' as full_description',
-                'is_read_more'
+                'is_read_more',
 
             ]
         );
@@ -58,14 +59,42 @@ class AppController extends Controller
 
     public function market(Request $request)
     {
-        $marketData = MarketData::paginate(10);
+        $locale = App::getLocale();
+
+        $marketData = MarketData::select(
+            [
+                'culture_' . $locale               . ' as culture',
+                'delivery_due_data_' . $locale     . ' as delivery_due_data',
+                'delivery_terms_' . $locale        . ' as delivery_terms',
+                'description_' . $locale           . ' as description',
+                'location_' . $locale              . ' as location',
+                'month_of_delivery_' . $locale     . ' as month_of_delivery',
+                'offer_type_' . $locale            . ' as offer_type',
+                'price_' . $locale                 . ' as price',
+                'processing_company_' . $locale    . ' as processing_company',
+                'valid_until_' . $locale           . ' as valid_until',
+                'vat_' . $locale                   . ' as vat',
+                'volume_' . $locale                . ' as volume',
+                'company_address_' . $locale       . ' as company_address',
+                'company_name_' . $locale          . ' as company_name',
+                'company_contact_' . $locale       . ' as company_contact',
+                'company_telephone_' . $locale     . ' as company_telephone',
+                'company_website_' . $locale       . ' as company_website',
+                'company_registered_no_' . $locale . ' as company_registered_no',
+                'company_director_' . $locale      . ' as company_director',
+                'company_owner_' . $locale         . ' as company_owner',
+                'company_type_' . $locale          . ' as company_type',
+                'published_at_' . $locale          . ' as published_at',
+            ]
+        )->paginate(10);
+
 
         return view('market', compact('marketData', 'request'));
     }
 
     public function contacts(Request $request)
     {
-        $locale = App::getLocale();
+        $locale    = App::getLocale();
         $personals = Personal::all(
             [
                 'full_name_' . $locale . ' as full_name',
@@ -75,6 +104,7 @@ class AppController extends Controller
                 'photo_path',
             ]
         );
+
         return view('contacts', compact('request', 'personals'));
     }
 
