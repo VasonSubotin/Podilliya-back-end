@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->exec('node scrapper/index.js')->dailyAt('02:30');
         $schedule->exec('node scrapper/index2.js')->dailyAt('02:45');
+        $schedule->command(ScrapeData::class)->dailyAt('03:00');
     }
 
     /**
