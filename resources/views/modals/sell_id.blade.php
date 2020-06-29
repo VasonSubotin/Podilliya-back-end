@@ -7,7 +7,7 @@
             <div class="modal_market_data">
                 <div class="row">
                     <div class="col">
-                        <h2 class="m-0">@lang('market.operation.type.sell')</h2>
+                        <h2 class="m-0">@lang('offers.market.operation.type.sell')</h2>
                     </div>
 {{--                    <div class="col flex-grow-0">--}}
 {{--                        <button class="btn btn-more">More</button>--}}
@@ -19,41 +19,41 @@
                     </div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">@lang('market.operation.crop.type')</div>
+                    <div class="data_label">@lang('offers.market.operation.crop.type')</div>
                     <div class="data_text">{{$data->culture}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">@lang('market.operation.crop.volume')</div>
+                    <div class="data_label">@lang('offers.market.operation.crop.volume')</div>
                     <div class="data_text">{{$data->volume}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">@lang('market.operation.crop.vat')</div>
+                    <div class="data_label">@lang('offers.market.operation.crop.vat')</div>
                     <div class="data_text">{{$data->vat}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">@lang('market.terms')</div>
+                    <div class="data_label">@lang('offers.market.terms')</div>
                     <div class="data_text">{{$data->delivery_terms}}</div>
                 </div>
                 <div class="data_row">
-                    <div class="data_label">@lang('market.city')</div>
+                    <div class="data_label">@lang('offers.market.city')</div>
                     <div class="data_text">{{$data->location}}</div>
                 </div>
                 <div class="row half_space">
                     <div class="col d-flex">
                         <div class="data_row">
-                            <div class="data_label">@lang('market.delivery.terms')</div>
+                            <div class="data_label">@lang('offers.market.delivery.terms')</div>
                             <div class="data_text">{{$data->delivery}}</div>
                         </div>
                     </div>
                     <div class="col d-flex">
                         <div class="data_row">
-                            <div class="data_label">@lang('market.delivery.month')</div>
+                            <div class="data_label">@lang('offers.market.delivery.month')</div>
                             <div class="data_text">{{$data->month_of_delivery}}</div>
                         </div>
                     </div>
                     <div class="col d-flex">
                         <div class="data_row">
-                            <div class="data_label">@lang('market.valid.until')</div>
+                            <div class="data_label">@lang('offers.market.valid.until')</div>
                             <div class="data_text">{{$data->valid_unitl}}</div>
                         </div>
                     </div>
