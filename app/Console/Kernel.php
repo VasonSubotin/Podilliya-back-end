@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\ProcessScrappedData;
+use App\Console\Commands\ScrapeData;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        ProcessScrappedData::class
+        ProcessScrappedData::class,
+        ScrapeData::class
     ];
 
     /**
@@ -25,7 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-
+        $schedule->exec('node scrapper/index.js')->dailyAt('02:30');
+        $schedule->exec('node scrapper/index2.js')->dailyAt('02:45');
     }
 
     /**
