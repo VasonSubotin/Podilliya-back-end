@@ -6,6 +6,7 @@ use App\Models\MarketData;
 use App\Models\Offer;
 use App\Models\OurPrice;
 use App\Models\Personal;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -61,6 +62,7 @@ class AppController extends Controller
     {
         $locale = App::getLocale();
 
+        Carbon::setLocale($locale);
         $marketData = MarketData::select(
             [
                 'id',
@@ -88,6 +90,7 @@ class AppController extends Controller
                 'published_at_' . $locale          . ' as published_at',
             ]
         )->orderBy('published_at_' . $locale, 'desc')->paginate(10);
+
 
 
         return view('market', compact('marketData', 'request'));
