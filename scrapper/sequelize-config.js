@@ -6,7 +6,7 @@ const Sequelize = require('sequelize');
 // DB_PASSWORD=my-secret-pw
 const sequelize = new Sequelize('oilmarket', 'oilmarket', '[eqgbplf;jgf', {
     host: 'localhost',
-    port: '33066',
+    port: '3306',
     dialect: 'mysql',
     pool: {
         max: 100,
