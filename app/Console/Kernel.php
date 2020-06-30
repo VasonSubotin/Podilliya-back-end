@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->exec('node /var/www/podiliyagold.com/scrapper/index.js')->dailyAt('01:41');
+        $schedule->exec('node /var/www/podiliyagold.com/scrapper/index.js')->everyMinute();
 //        $schedule->exec('ping 8.8.8.8')->everyMinute();
     }
 
