@@ -1,9 +1,12 @@
 const Sequelize = require('sequelize');
 
 
-const sequelize = new Sequelize('oilmarket', 'oilmarket', '[eqgbplf;jgf', {
+// DB_DATABASE=scrapper
+// DB_USERNAME=root
+// DB_PASSWORD=my-secret-pw
+const sequelize = new Sequelize('scrapper', 'root', 'my-secret-pw', {
     host: 'localhost',
-    port: '3306',
+    port: '33066',
     dialect: 'mysql',
     pool: {
         max: 100,
