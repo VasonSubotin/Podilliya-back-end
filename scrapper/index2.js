@@ -35,7 +35,7 @@ const headers = {
     'Accept-Encoding': 'gzip, deflate, br',
     'DNT': '1',
     'Connection': 'keep-alive',
-    'Referer': 'https://graintrade.com.ua/en/site/login', // lang todo
+    'Referer': 'https://graintrade.com.ua/en/site/login',
     'Cookie': 'cookie_side=1; cseconds=115',
     'Upgrade-Insecure-Requests': '1',
     'Pragma': 'no-cache',

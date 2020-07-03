@@ -24,7 +24,7 @@ const languages = {
 
 
 
-const URL = languages.en.culture_sunflower_oil_cake;
+const URL = 'https://graintrade.com.ua/en/birzha/kuplyu-ta-prodam-sonyashnik-v-ukraini-f2'; //соняшник
 const graintrade = 'https://graintrade.com.ua';
 
 const headers = {
@@ -35,7 +35,7 @@ const headers = {
     'Accept-Encoding': 'gzip, deflate, br',
     'DNT': '1',
     'Connection': 'keep-alive',
-    'Referer': 'https://graintrade.com.ua/en/site/login',
+    'Referer': 'https://graintrade.com.ua/en/site/login', // lang todo
     'Cookie': 'cookie_side=1; cseconds=115',
     'Upgrade-Insecure-Requests': '1',
     'Pragma': 'no-cache',
@@ -89,7 +89,7 @@ const headers = {
             let fullUrlEn = graintrade + '/en/birzha/' + urlName + '-' + id
             let fullUrlUk = graintrade + '/birzha/' + urlName + '-' + id
 
-            contentLinks.push({fullUrlEn, fullUrlUk}); // todo lang fix
+            contentLinks.push({fullUrlEn, fullUrlUk});
         });
     }
 
