@@ -89,9 +89,7 @@ class AppController extends Controller
                 'company_type_' . $locale          . ' as company_type',
                 'published_at_' . $locale          . ' as published_at',
             ]
-        )->orderBy('published_at_' . $locale, 'desc')->paginate(10);
-
-
+        )->orderBy('published_sort', 'desc')->paginate(10);
 
         return view('market', compact('marketData', 'request'));
     }

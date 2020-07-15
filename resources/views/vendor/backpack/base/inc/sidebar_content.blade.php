@@ -4,3 +4,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('ourprice') }}'><i class='nav-icon la la-question'></i> OurPrices</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('personal') }}'><i class='nav-icon la la-question'></i> Personals</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('offer') }}'><i class='nav-icon la la-question'></i> Offers</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('worldprice') }}'><i class='nav-icon la la-question'></i> WorldPrices</a></li>
