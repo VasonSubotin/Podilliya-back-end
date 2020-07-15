@@ -10,5 +10,9 @@ class MarketData extends Model
 
     protected $table = 'market_data';
 
+    protected $dates = [
+        'published_sort'
+    ];
+
     public $timestamps = false;
 }

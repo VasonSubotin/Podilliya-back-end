@@ -18,7 +18,7 @@ class PublishedSort extends Migration
         });
 
         foreach (\App\Models\MarketData::all() as $data) {
-            $data->published_sort = \Carbon\Carbon::parse($data->published_at_en)->timestamp;
+            $data->published_sort = \Carbon\Carbon::parse($data->published_at_en);
             $data->save();
         }
     }
