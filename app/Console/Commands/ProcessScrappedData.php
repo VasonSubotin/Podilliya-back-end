@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\MarketData;
 use App\Models\ScrappedDataRecord;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 
@@ -95,7 +96,7 @@ class ProcessScrappedData extends Command
                         'company_address_uk'       => $decodedScrappedData->companyAddressUk,
                         'published_at_uk'          => $decodedScrappedData->publishedUk,
                         'hash'                     => $hash,
-
+                        'published_sort'           => Carbon::parse($decodedScrappedData->publishedUk),
                     ]
                 ))->save();
                 $record->delete();
