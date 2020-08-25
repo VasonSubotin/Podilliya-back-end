@@ -96,7 +96,7 @@ class ProcessScrappedData extends Command
                         'company_address_uk'       => $decodedScrappedData->companyAddressUk,
                         'published_at_uk'          => $decodedScrappedData->publishedUk,
                         'hash'                     => $hash,
-                        'published_sort'           => Carbon::parse($decodedScrappedData->publishedUk),
+                        'published_sort'           => Carbon::parse($decodedScrappedData->publishedEn),
                     ]
                 ))->save();
                 $record->delete();
