@@ -2,16 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\BusinessLogic\MarketPriceAggregator;
 use App\Models\MarketData;
 use App\Models\Offer;
 use App\Models\OurPrice;
 use App\Models\Personal;
+use App\Providers\MarketPriceServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class AppController extends Controller
 {
+
+    public $marketPriceServiceProvider;
+
+    public function __construct(MarketPriceAggregator $marketPriceServiceProvider)
+    {
+        $this->marketPriceServiceProvider = $marketPriceServiceProvider;
+    }
+
     public function index(Request $request)
     {
         $locale    = App::getLocale();
@@ -91,7 +101,9 @@ class AppController extends Controller
             ]
         )->orderBy('published_sort', 'desc')->paginate(10);
 
-        return view('market', compact('marketData', 'request'));
+        $prices = $this->marketPriceServiceProvider->getPrices();
+
+        return view('market', compact('marketData', 'request', 'prices', 'locale'));
     }
 
     public function contacts(Request $request)
