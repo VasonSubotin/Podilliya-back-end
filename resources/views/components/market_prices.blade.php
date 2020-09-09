@@ -18,13 +18,15 @@
                             <div class="precent increase">+7.75%</div>
                         </div>
                     </div>
-                    <div class="table_row">
-                        <div class="label">Ukrainian market (refined oil)</div>
-                        <div class="price_row">
-                            <div class="price">34$</div>
-                            <div class="precent decrease">-3,6%</div>
+                    @foreach($ukrainePrices as $ukrainePrice)
+                        <div class="table_row">
+                            <div class="label">Ukrainian market</div>
+                            <div class="price_row">
+                                <div class="price">{{$ukrainePrice->price}} UAH</div>
+                                <div class="precent">{{$ukrainePrice->{'offer_type_' . $locale} }}</div>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

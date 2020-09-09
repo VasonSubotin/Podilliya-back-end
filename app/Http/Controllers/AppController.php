@@ -102,8 +102,9 @@ class AppController extends Controller
         )->orderBy('published_sort', 'desc')->paginate(10);
 
         $prices = $this->marketPriceServiceProvider->getPrices();
+        $ukrainePrices = $this->marketPriceServiceProvider->getPriceUkraine();
 
-        return view('market', compact('marketData', 'request', 'prices', 'locale'));
+        return view('market', compact('marketData', 'request', 'prices', 'locale', 'ukrainePrices'));
     }
 
     public function contacts(Request $request)

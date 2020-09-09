@@ -42,4 +42,25 @@ class MarketPriceAggregator
         }
         return $prices;
     }
+
+    public function getPriceUkraine()
+    {
+        $thisWeek   = (new Carbon('this week'))->toDateString();
+        $nextWeek = (new Carbon('next week'));
+
+        return $prices = DB::select(DB::raw(
+            "select ROUND(AVG(SUBSTRING_INDEX(price_en, ' ', 1))) as price, offer_type_en, ANY_VALUE(offer_type_uk) offer_type_uk
+                    from market_data
+                    where published_sort between ? and ?
+                    group by offer_type_en"
+        ), [$thisWeek, $nextWeek]);
+
+//        foreach($prices as $index => $price) {
+//            $changeValue = $price->price - $price->pricePrev;
+//            $changeValue = ($changeValue / $price->price) * 100;
+//
+//            $prices[$index]->priceChange = round($changeValue,1);
+//        }
+//        return $prices;
+    }
 }
