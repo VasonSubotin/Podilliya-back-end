@@ -6,9 +6,18 @@
                 <div class="table">
                     @foreach($prices as $price)
                         <div class="table_row">
-                            <div class="label">{{$price->{'culture_'.$locale} }}</div>
+                            <div class="label">
+                                @if($price->{'culture_'.$locale} == 'Sunflower')
+                                    Sunflower oil seeds
+                                @elseif($price->{'culture_'.$locale} == 'Sunflower- oil')
+                                    Sunflower oil
+                                @else
+                                    {{ $price->{'culture_'.$locale} }}
+                                @endif
+
+                            </div>
                             <div class="price_row">
-                                <div class="price">{{$price->price}} UAH @lang('offers.market.urk.market.prev.month')</div>
+                                <div class="price">{{$price->price}} UAH/@lang('offers.market.urk.market.prev.month')</div>
                                 <div class="precent @if($price->priceChange >= 0) increase @else decrease @endif">{{$price->priceChange}}%</div>
                             </div>
                         </div>
@@ -17,7 +26,7 @@
                         <div class="table_row">
                             <div class="label">@lang('offers.market.urk.market.ukraine')</div>
                             <div class="price_row">
-                                <div class="price">{{$ukrainePrice->price}} UAH @lang('weekly')</div>
+                                <div class="price">{{$ukrainePrice->price}} UAH/@lang('offers.market.urk.market.ukraine.weekly')</div>
                                 <div class="precent">{{$ukrainePrice->{'offer_type_' . $locale} }}</div>
                             </div>
                         </div>
