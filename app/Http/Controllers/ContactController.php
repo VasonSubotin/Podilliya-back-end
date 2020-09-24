@@ -12,20 +12,24 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        Contact::create(
+        $contact = Contact::create(
             [
                 'email'   => $request->email ?? '',
                 'name'    => $request->name ?? '',
                 'message' => $request->message ?? '',
             ]
         );
+
+
         $email = new \SendGrid\Mail\Mail();
         $email->setFrom("noreply@podiliyagold.com", "Example User");
-        $email->setSubject("Test illia");
-        $email->addTo("illia.kyzlaitis.cv@gmail.com", "Example User");
-        $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+        $email->setSubject("New client " . $contact->id);
+        $email->addTo('illia.kyzlaitis.cv@gmail.com', "Example User");
         $email->addContent(
-            "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+            "text/html", "$request->name<br>"
+        );
+        $email->addContent(
+            "text/html", "<strong>$request->message</strong>"
         );
         $sendgrid = new \SendGrid(getenv(env('SENDGRID')));
 
