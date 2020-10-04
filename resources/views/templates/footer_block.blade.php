@@ -15,7 +15,7 @@
                 </div>
                 <div class="row_info right_grow">
                     <div class="label">@lang('home.footer.phone')</div>
-                    <div class="caption"><a href="tel:+380508345574" class="href">+ 38 (098) 898 16 93</a></div>
+                    <div class="caption"><a href="tel:+380988981693" class="href">+ 38 (098) 898 16 93</a></div>
                 </div>
                 <div class="row_info right_grow">
                     <div class="label">@lang('home.footer.email')</div>
