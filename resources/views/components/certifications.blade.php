@@ -8,10 +8,6 @@
                         <div class="image" style="background-image: url(./build/img/certifications/cert_1_main.jpg);"></div>
                         <div class="caption">20757 DSTU ISO</div>
                     </a>
-                    <a href="{{asset('build/img/certifications/cert_2.pdf')}}" target="_blank" class="item">
-                        <div class="image" style="background-image: url(./build/img/certifications/cert_2_main.jpg);"></div>
-                        <div class="caption">CCM MS Standart HACCP</div>
-                    </a>
                     <a href="{{asset('build/img/certifications/cert_3.pdf')}}" target="_blank" class="item">
                         <div class="image" style="background-image: url(./build/img/certifications/cert_3_main.jpg);"></div>
                         <div class="caption">ISO 9001:2015</div>
