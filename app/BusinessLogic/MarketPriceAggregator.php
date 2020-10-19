@@ -48,7 +48,7 @@ class MarketPriceAggregator
         $thisWeek   = (new Carbon('this week'))->toDateString();
         $nextWeek = (new Carbon('next week'));
 
-        $today = (new Carbon());
+        $today = (new Carbon('today'));
         $weekAgo = $today->subWeek();
 
         return $prices = DB::select(DB::raw(
