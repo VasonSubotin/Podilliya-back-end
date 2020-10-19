@@ -45,18 +45,15 @@ class MarketPriceAggregator
 
     public function getPriceUkraine()
     {
-        $thisWeek   = (new Carbon('this week'))->toDateString();
-        $nextWeek = (new Carbon('next week'));
-
         $today = (new Carbon('today'));
-        $weekAgo = $today->subWeek();
+        $weekAgo = (new Carbon('today'))->subWeek();
 
         return $prices = DB::select(DB::raw(
             "select ROUND(AVG(SUBSTRING_INDEX(price_en, ' ', 1))) as price, offer_type_en, ANY_VALUE(offer_type_uk) offer_type_uk
                     from market_data
                     where published_sort between ? and ? and culture_en like 'Sunflower- oil' 
                     group by offer_type_en"
-        ), [$today->toDateString(), $weekAgo->toDateString()]);
+        ), [$weekAgo->toDateString(), $today->toDateString()]);
 
 //        foreach($prices as $index => $price) {
 //            $changeValue = $price->price - $price->pricePrev;
