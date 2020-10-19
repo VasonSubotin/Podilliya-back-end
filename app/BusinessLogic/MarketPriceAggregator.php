@@ -54,13 +54,5 @@ class MarketPriceAggregator
                     where published_sort between ? and ? and culture_en like 'Sunflower- oil' 
                     group by offer_type_en"
         ), [$weekAgo->toDateString(), $today->toDateString()]);
-
-//        foreach($prices as $index => $price) {
-//            $changeValue = $price->price - $price->pricePrev;
-//            $changeValue = ($changeValue / $price->price) * 100;
-//
-//            $prices[$index]->priceChange = round($changeValue,1);
-//        }
-//        return $prices;
     }
 }
