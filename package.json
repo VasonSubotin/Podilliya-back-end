@@ -22,7 +22,7 @@
         "shift-parser": "^7.0.3"
     },
     "devDependencies": {
-        "bootstrap-table": "^1.16.0",
+        "bootstrap-table": "^1.20.2",
         "browser-sync": "~2.26.7",
         "del": "~5.1.0",
         "floating-form-labels": "^1.2.4",
